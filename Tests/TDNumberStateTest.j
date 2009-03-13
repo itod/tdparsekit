@@ -5,11 +5,11 @@
 
 @implementation TDNumberStateTest : OJTestCase
 {
-	
+    
 }
 
 - (void)testFoo {
-	[self assertTrue:NO message:"OH HAI!"];
+    [self assertTrue:NO message:"OH HAI!"];
 }
 
 @end
