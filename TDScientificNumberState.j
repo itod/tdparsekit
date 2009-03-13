@@ -15,13 +15,13 @@
         var e = c;
         c = [r read];
         
-        var hasExp = (c >= 0 || c <= 9),
+        var hasExp = (parseInt(c) >= 0 || parseInt(c) <= 9),
             negativeExp = ('-' == c),
             positiveExp = ('+' == c);
 
         if (!hasExp && (negativeExp || positiveExp)) {
             c = [r read];
-            hasExp = (c >= 0 && c <= 9);
+            hasExp = (parseInt(c) >= 0 || parseInt(c) <= 9);
         }
         if (-1 != c) {
             [r unread];

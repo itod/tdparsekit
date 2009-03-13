@@ -207,16 +207,16 @@
     [self assert:@"-1." equals:tok.stringValue];
 }
 
-// - (void)testNegativeOneDotSpace
-// {
-//     s = @"-1. ";
-//     [t setString:s];
-//     [r setString:s];
-//     var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
-//     [self assert:-1.0 equals:tok.floatValue];
-//     [self assertTrue:tok.isNumber];
-//     [self assert:@"-1" equals:tok.stringValue];
-// }
+- (void)testNegativeOneDotSpace
+{
+    s = @"-1. ";
+    [t setString:s];
+    [r setString:s];
+    var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
+    [self assert:-1.0 equals:tok.floatValue];
+    [self assertTrue:tok.isNumber];
+    [self assert:@"-1" equals:tok.stringValue];
+}
 
 - (void)testNegativeOneDotZero
 {
@@ -229,17 +229,17 @@
     [self assert:@"-1.0" equals:tok.stringValue];
 }
 
-// - (void)testNegativeOneDotZeroSpace
-// {
-//     s = @"-1.0 ";
-//     [t setString:s];
-//     [r setString:s];
-//     var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
-//     [self assert:-1.0 equals:tok.floatValue];
-//     [self assertTrue:tok.isNumber];
-//     [self assert:@"-1.0" equals:tok.stringValue];
-// }
-// 
+- (void)testNegativeOneDotZeroSpace
+{
+    s = @"-1.0 ";
+    [t setString:s];
+    [r setString:s];
+    var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
+    [self assert:-1.0 equals:tok.floatValue];
+    [self assertTrue:tok.isNumber];
+    [self assert:@"-1.0" equals:tok.stringValue];
+}
+
 - (void)testOneDotOne
 {
     s = @"1.1";
@@ -372,16 +372,16 @@
     [self assert:@"-.11100" equals:tok.stringValue];
 }
 
-// - (void)testNegativeDotOneOneOneZeroSpace
-// {
-//     s = @"-.1110 ";
-//     [t setString:s];
-//     [r setString:s];
-//     var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
-//     [self assert:-0.111 equals:tok.floatValue];
-//     [self assertTrue:tok.isNumber];
-//     [self assert:@"-.1110" equals:tok.stringValue];
-// }
+- (void)testNegativeDotOneOneOneZeroSpace
+{
+    s = @"-.1110 ";
+    [t setString:s];
+    [r setString:s];
+    var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
+    [self assert:-0.111 equals:tok.floatValue];
+    [self assertTrue:tok.isNumber];
+    [self assert:@"-.1110" equals:tok.stringValue];
+}
 
 - (void)testZeroDotThreeSixtyFive
 {
@@ -482,17 +482,17 @@
     [self assert:@"+0" equals:tok.stringValue];
 }
 
-// - (void)testPositiveZeroSpace
-// {
-//     s = @"+0 ";
-//     [t setString:s];
-//     [r setString:s];
-//     var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
-//     [self assert:0.0 equals:tok.floatValue];
-//     [self assertTrue:tok.isNumber];
-//     [self assert:@"+0" equals:tok.stringValue];
-// }
-// 
+- (void)testPositiveZeroSpace
+{
+    s = @"+0 ";
+    [t setString:s];
+    [r setString:s];
+    var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
+    [self assert:0.0 equals:tok.floatValue];
+    [self assertTrue:tok.isNumber];
+    [self assert:@"+0" equals:tok.stringValue];
+}
+
 - (void)testNegativeZero
 {
     s = @"-0";

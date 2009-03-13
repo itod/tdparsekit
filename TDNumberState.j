@@ -66,7 +66,7 @@
         v = 0.0;
     
     while (true) {
-        if (c >= 0 && c <= 9) {
+        if (parseInt(c) >= 0 && parseInt(c) <= 9) {
             [self append:c];
             gotADigit = YES;
             v = v * 10.0 + (c - '0');
@@ -96,7 +96,7 @@
     if ('.' == c) 
     {
         var n = [r read],
-            nextIsDigit = (n >= 0 && n <= 9);
+            nextIsDigit = (parseInt(n) >= 0 && parseInt(n) <= 9);
 
         if (-1 != n)
             [r unread];
