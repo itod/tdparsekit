@@ -17,7 +17,7 @@
             [whitespaceChars addObject:NO];
         }
         
-        [self setWhitespaceChars:YES from:0 to:255];
+        [self setWhitespaceChars:YES from:0 to:' '.charCodeAt(0)];
     }
 
     return self;
@@ -34,15 +34,20 @@
     }
 }
 
-- (BOOL)isWhitespaceChar:(unsigned)cin 
+- (BOOL)isWhitespaceChar:(int)cin 
 {
+    if (-1 == cin)
+        return NO;
+    
+    cin = cin.charCodeAt(0);
+    
     if (cin < 0 || cin > whitespaceChars.length - 1)
         return NO;
 
     return !![whitespaceChars objectAtIndex:cin];
 }
 
-- (TDToken)nextTokenFromReader:(TDReader)r startingWith:(unsigned)cin tokenizer:(TDTokenizer)t 
+- (TDToken)nextTokenFromReader:(TDReader)r startingWith:(int)cin tokenizer:(TDTokenizer)t 
 {
     if (reportsWhitespaceTokens)
         [self reset];
