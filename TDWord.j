@@ -1,4 +1,4 @@
-#import "TDToken.j"
+@import "TDToken.j"
 
 @implementation TDWord
 
