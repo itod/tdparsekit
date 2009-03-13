@@ -123,7 +123,7 @@
 {
     if (reader != r) {
         reader = r
-        reader.string = string;
+        [reader setString:string];
     }
 }
 
@@ -135,11 +135,13 @@
 - (void)setString:(CPString)s 
 {
     string = s;
-    reader.string = string;
+    [reader setString:s];
 }
 
 - (TDTokenizerState)tokenizerStateFor:(unsigned)c 
 {
+    c = c.charCodeAt(0);
+    
     if (c < 0 || c > 255) {
         if (c >= 0x19E0 && c <= 0x19FF) { // khmer symbols
             return symbolState;

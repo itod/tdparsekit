@@ -28,7 +28,7 @@
         for (var i=0 ; i < len - 1; i++) {
             [r unread];
         }
-        return [TDToken tokenWithTokenType:TDTokenTypeSymbol stringValue:[CPString stringWithFormat:@"%C", cin] floatValue:0.0];
+        return [TDToken tokenWithTokenType:TDTokenTypeSymbol stringValue:""+cin floatValue:0.0];
     }
 }
 

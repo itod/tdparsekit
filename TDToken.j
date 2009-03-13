@@ -95,7 +95,7 @@ TDTokenTypeComment      = 6;
 {
     if (!value) 
     {
-        if (number)
+        if (isNumber)
             value = floatValue;
         else
             value = stringValue;

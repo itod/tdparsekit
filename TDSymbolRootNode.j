@@ -72,7 +72,7 @@
 
 - (CPString)nextWithFirst:(int)c rest:(TDReader)r parent:(TDSymbolNode)p 
 {
-    var result = [CPString stringWithFormat:@"%C", c];
+    var result = ""+c;
 
     // this also works.
 //    NSString *result = [[[NSString alloc] initWithCharacters:(const unichar *)&c length:1] autorelease];
@@ -100,7 +100,7 @@
         child = [p.children objectForKey:key];
     
     if (!child) {
-        if (p == self) {
+        if (p === self) {
             return result;
         } else {
             [r unread];
