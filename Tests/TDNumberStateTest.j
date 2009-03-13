@@ -8,7 +8,8 @@
     
 }
 
-- (void)testFoo {
+- (void)testFoo
+{
     [self assertTrue:NO message:"OH HAI!"];
 }
 
