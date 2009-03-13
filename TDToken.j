@@ -36,7 +36,7 @@ TDTokenTypeComment      = 6;
 }
 
 // designated initializer
-- (id)initWithTokenType:(TDTokenType)t stringValue:(NSString *)s floatValue:(CGFloat)n 
+- (id)initWithTokenType:(TDTokenType)t stringValue:(NSString)s floatValue:(CGFloat)n 
 {
     if (self = [super init]) {
         tokenType = t;
