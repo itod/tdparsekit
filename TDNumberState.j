@@ -21,10 +21,10 @@
     if ('-' == cin) {
         negative = YES;
         cin = [r read];
-        [self append:'-'];
+        [self appendString:'-'];
     } else if ('+' == cin) {
         cin = [r read];
-        [self append:'+'];
+        [self appendString:'+'];
     }
     
     [self reset:cin];
@@ -91,7 +91,6 @@
     floatValue = [self absorbDigitsFromReader:r isFraction:NO];
 }
 
-
 - (void)parseRightSideFromReader:(TDReader)r 
 {
     if ('.' == c) 
@@ -103,7 +102,7 @@
             [r unread];
 
         if (nextIsDigit || allowsTrailingDot) {
-            [self append:'.'];
+            [self appendString:'.'];
             if (nextIsDigit) {
                 c = [r read];
                 floatValue += [self absorbDigitsFromReader:r isFraction:YES];
