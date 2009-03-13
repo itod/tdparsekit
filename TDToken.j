@@ -15,12 +15,12 @@ TDTokenTypeComment      = 6;
     CPString    stringValue;
     TDTokenType tokenType;
     
-    BOOL        number;
-    BOOL        quotedString;
-    BOOL        symbol;
-    BOOL        word;
-    BOOL        whitespace;
-    BOOL        comment;
+    BOOL        isNumber;
+    BOOL        isQuotedString;
+    BOOL        isSymbol;
+    BOOL        isWord;
+    BOOL        isWhitespace;
+    BOOL        isComment;
     
     id          value;
 }
@@ -43,12 +43,12 @@ TDTokenTypeComment      = 6;
         stringValue = s;
         floatValue = n;
         
-        number = (TDTokenTypeNumber == t);
-        quotedString = (TDTokenTypeQuotedString == t);
-        symbol = (TDTokenTypeSymbol == t);
-        word = (TDTokenTypeWord == t);
-        whitespace = (TDTokenTypeWhitespace == t);
-        comment = (TDTokenTypeComment == t);
+        isNumber = (TDTokenTypeNumber == t);
+        isQuotedString = (TDTokenTypeQuotedString == t);
+        isSymbol = (TDTokenTypeSymbol == t);
+        isWord = (TDTokenTypeWord == t);
+        isWhitespace = (TDTokenTypeWhitespace == t);
+        isComment = (TDTokenTypeComment == t);
     }
     
     return self;

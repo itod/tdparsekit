@@ -15,13 +15,13 @@
         var e = c;
         c = [r read];
         
-        var hasExp = isdigit(c),
+        var hasExp = (c >= 0 || c <= 9),
             negativeExp = ('-' == c),
             positiveExp = ('+' == c);
 
         if (!hasExp && (negativeExp || positiveExp)) {
             c = [r read];
-            hasExp = isdigit(c);
+            hasExp = (c >= 0 && c <= 9);
         }
         if (-1 != c) {
             [r unread];

@@ -19,7 +19,7 @@
 
 - (void)remove:(CPString)s 
 {
-    if (s.length < 2) return;
+    if (s && s.length < 2) return;
     
     [self removeWithFirst:[s characterAtIndex:0] rest:[s substringFromIndex:1] parent:self];
 }
@@ -36,7 +36,7 @@
 
     var rest = nil;
     
-    if (0 == s.length) {
+    if (!s || 0 == s.length) {
         return;
     } else if (s.length > 1) {
         rest = [s substringFromIndex:1];
@@ -53,7 +53,7 @@
     if (child) {
         var rest = nil;
         
-        if (0 == s.length) {
+        if (!s || 0 == s.length) {
             return;
         } else if (s.length > 1) {
             rest = [s substringFromIndex:1];

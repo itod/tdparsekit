@@ -65,8 +65,8 @@
     var divideBy = 1.0,
         v = 0.0;
     
-    while (1) {
-        if (isdigit(c)) {
+    while (true) {
+        if (c >= 0 && c <= 9) {
             [self append:c];
             gotADigit = YES;
             v = v * 10.0 + (c - '0');
@@ -97,7 +97,7 @@
     if ('.' == c) 
     {
         var n = [r read],
-            nextIsDigit = isdigit(n);
+            nextIsDigit = (n >= 0 && n <= 9);
 
         if (-1 != n)
             [r unread];

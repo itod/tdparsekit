@@ -29,7 +29,7 @@
 
 - (void)determineAncestry 
 {
-    if (-1 == parent.character) { // optimization for sinlge-char symbol (parent is symbol root node)
+    if (parent && -1 == parent.character) { // optimization for sinlge-char symbol (parent is symbol root node)
         ancestry = string;
     } else {
         var result = "",
