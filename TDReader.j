@@ -44,7 +44,7 @@
         return -1;
     }
     
-    return string.charAt(cursor++);
+    return string.charCodeAt(cursor++);
 }
 
 - (void)unread 

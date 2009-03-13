@@ -23,7 +23,7 @@
     [r setString:s];
     
     var c = [r read];
-    [self assert:c equals:@" "];
+    [self assert:String.fromCharCode(c) equals:@" "];
     
     var tok = [ws nextTokenFromReader:r startingWith:c tokenizer:nil];
     [self assertNull:tok];
@@ -117,11 +117,11 @@
     [r setString:s];
     
     var c = [r read];
-    [self assert:c equals:' '];
+    [self assert:String.fromCharCode(c) equals:' '];
     
     var tok = [ws nextTokenFromReader:r startingWith:c tokenizer:nil];
     [self assertNull:tok];
-    [self assert:'a' equals:[r read]];
+    [self assert:'a'.charCodeAt(0) equals:[r read]];
 }
 
 - (void)testSpaceASpace
@@ -130,7 +130,7 @@
     [r setString:s];
     var tok = [ws nextTokenFromReader:r startingWith:[r read] tokenizer:nil];
     [self assertNull:tok];
-    [self assert:'a' equals:[r read]];
+    [self assert:'a'.charCodeAt(0) equals:[r read]];
 }
 
 - (void)testTabA
@@ -139,7 +139,7 @@
     [r setString:s];
     var tok = [ws nextTokenFromReader:r startingWith:[r read] tokenizer:nil];
     [self assertNull:tok];
-    [self assert:'a' equals:[r read]];
+    [self assert:'a'.charCodeAt(0) equals:[r read]];
 }
 
 - (void)testNewLineA
@@ -148,7 +148,7 @@
     [r setString:s];
     var tok = [ws nextTokenFromReader:r startingWith:[r read] tokenizer:nil];
     [self assertNull:tok];
-    [self assert:'a' equals:[r read]];
+    [self assert:'a'.charCodeAt(0) equals:[r read]];
 }
 
 - (void)testCarriageReturnA
@@ -157,7 +157,7 @@
     [r setString:s];
     var tok = [ws nextTokenFromReader:r startingWith:[r read] tokenizer:nil];
     [self assertNull:tok];
-    [self assert:'a' equals:[r read]];
+    [self assert:'a'.charCodeAt(0) equals:[r read]];
 }
 
 - (void)testNewLineSpaceCarriageReturnA
@@ -166,7 +166,7 @@
     [r setString:s];
     var tok = [ws nextTokenFromReader:r startingWith:[r read] tokenizer:nil];
     [self assertNull:tok];
-    [self assert:'a' equals:[r read]];
+    [self assert:'a'.charCodeAt(0) equals:[r read]];
 }
 
 - (void)testSignificantSpace
@@ -176,7 +176,7 @@
     [r setString:s];
     
     var c = [r read];
-    [self assert:c equals:' '];
+    [self assert:String.fromCharCode(c) equals:' '];
     
     var tok = [ws nextTokenFromReader:r startingWith:c tokenizer:nil];
     [self assertNotNull:tok];
@@ -269,7 +269,7 @@
     var tok = [ws nextTokenFromReader:r startingWith:[r read] tokenizer:nil];
     [self assertNotNull:tok];
     [self assert:@" " equals:tok.stringValue];
-    [self assert:'a' equals:[r read]];
+    [self assert:'a'.charCodeAt(0) equals:[r read]];
 }
 
 - (void)testSignificantSpaceASpace
@@ -280,7 +280,7 @@
     var tok = [ws nextTokenFromReader:r startingWith:[r read] tokenizer:nil];
     [self assertNotNull:tok];
     [self assert:@" " equals:tok.stringValue];
-    [self assert:'a' equals:[r read]];
+    [self assert:'a'.charCodeAt(0) equals:[r read]];
 }
 
 - (void)testSignificantTabA
@@ -291,7 +291,7 @@
     var tok = [ws nextTokenFromReader:r startingWith:[r read] tokenizer:nil];
     [self assertNotNull:tok];
     [self assert:@"\t" equals:tok.stringValue];
-    [self assert:'a' equals:[r read]];
+    [self assert:'a'.charCodeAt(0) equals:[r read]];
 }
 
 - (void)testSignificantNewLineA
@@ -302,7 +302,7 @@
     var tok = [ws nextTokenFromReader:r startingWith:[r read] tokenizer:nil];
     [self assertNotNull:tok];
     [self assert:@"\n" equals:tok.stringValue];
-    [self assert:'a' equals:[r read]];
+    [self assert:'a'.charCodeAt(0) equals:[r read]];
 }
 
 - (void)testSignificantCarriageReturnA
@@ -313,7 +313,7 @@
     var tok = [ws nextTokenFromReader:r startingWith:[r read] tokenizer:nil];
     [self assertNotNull:tok];
     [self assert:@"\r" equals:tok.stringValue];
-    [self assert:'a' equals:[r read]];
+    [self assert:'a'.charCodeAt(0) equals:[r read]];
 }
 
 - (void)testSignificantNewLineSpaceCarriageReturnA
@@ -324,7 +324,7 @@
     var tok = [ws nextTokenFromReader:r startingWith:[r read] tokenizer:nil];
     [self assertNotNull:tok];
     [self assert:@"\n \r" equals:tok.stringValue];
-    [self assert:'a' equals:[r read]];
+    [self assert:'a'.charCodeAt(0) equals:[r read]];
 }
 
 @end

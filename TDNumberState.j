@@ -18,18 +18,18 @@
     
     var originalCin = cin;
     
-    if ('-' == cin) {
+    if ('-'.charCodeAt(0) == cin) {
         negative = YES;
         cin = [r read];
         [self appendString:'-'];
-    } else if ('+' == cin) {
+    } else if ('+'.charCodeAt(0) == cin) {
         cin = [r read];
         [self appendString:'+'];
     }
     
     [self reset:cin];
     
-    if ('.' == c) {
+    if ('.'.charCodeAt(0) == c) {
         [self parseRightSideFromReader:r];
     } else {
         [self parseLeftSideFromReader:r];
@@ -66,10 +66,10 @@
         v = 0.0;
     
     while (true) {
-        if (parseInt(c) >= 0 && parseInt(c) <= 9) {
+        if (c >= '0'.charCodeAt(0) && c <= '9'.charCodeAt(0)) {
             [self append:c];
             gotADigit = YES;
-            v = v * 10.0 + (c - '0');
+            v = v * 10.0 + (c - '0'.charCodeAt(0));
             c = [r read];
             if (isFraction) {
                 divideBy *= 10.0;
@@ -93,10 +93,10 @@
 
 - (void)parseRightSideFromReader:(TDReader)r 
 {
-    if ('.' == c) 
+    if ('.'.charCodeAt(0) == c) 
     {
         var n = [r read],
-            nextIsDigit = (parseInt(n) >= 0 && parseInt(n) <= 9);
+            nextIsDigit = (n >= '0'.charCodeAt(0) && n <= '9'.charCodeAt(0));
 
         if (-1 != n)
             [r unread];

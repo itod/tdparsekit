@@ -24,12 +24,12 @@
     [r setString:s];
     
     var c = [r read];
-    [self assert:c equals:"3"];
+    [self assert:String.fromCharCode(c) equals:"3"];
     
     var tok = [ns nextTokenFromReader:r startingWith:c tokenizer:t];
     [self assert:3.0 equals:tok.floatValue];
     [self assertTrue:tok.isNumber];
-    [self assert:@"3" equals:tok.stringValue];
+    [self assert:"3" equals:tok.stringValue];
 }
 
 - (void)testDoubleDigit
@@ -61,7 +61,7 @@
     [r setString:s];
 
     var c = [r read];
-    [self assert:c equals:"+"];
+    [self assert:String.fromCharCode(c) equals:"+"];
     
     var tok = [ns nextTokenFromReader:r startingWith:c tokenizer:t];
     [self assert:3.0 equals:tok.floatValue];
@@ -79,15 +79,15 @@
     [self assertTrue:tok.isNumber];
 }
 
-// - (void)testDoubleDigitPositiveSpace
-// {
-//     s = @"+22 ";
-//     [t setString:s];
-//     [r setString:s];
-//     var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
-//     [self assert:22.0 equals:tok.floatValue];
-//     [self assertTrue:tok.isNumber];
-// }
+- (void)testDoubleDigitPositiveSpace
+{
+    s = @"+22 ";
+    [t setString:s];
+    [r setString:s];
+    var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
+    [self assert:22.0 equals:tok.floatValue];
+    [self assertTrue:tok.isNumber];
+}
 
 - (void)testMultipleDots
 {
@@ -173,17 +173,17 @@
     [self assert:@"+1.0" equals:tok.stringValue];
 }
 
-// - (void)testPositiveOneDotZeroSpace
-// {
-//     s = @"+1.0 ";
-//     [t setString:s];
-//     [r setString:s];
-//     var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
-//     [self assert:1.0 equals:tok.floatValue];
-//     [self assertTrue:tok.isNumber];
-//     [self assert:@"+1.0" equals:tok.stringValue];
-// }
-// 
+- (void)testPositiveOneDotZeroSpace
+{
+    s = @"+1.0 ";
+    [t setString:s];
+    [r setString:s];
+    var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
+    [self assert:1.0 equals:tok.floatValue];
+    [self assertTrue:tok.isNumber];
+    [self assert:@"+1.0" equals:tok.stringValue];
+}
+
 - (void)testNegativeOneDot
 {
     s = @"-1.";

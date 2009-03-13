@@ -20,7 +20,7 @@
 
         // this private property is an optimization. 
         // cache the NSString for the char to prevent it being constantly recreated in -determinAncestry
-        string = [CPString stringWithFormat:@"%C", character];
+        string = String.fromCharCode(c); //[CPString stringWithFormat:@"%C", character];
 
         [self determineAncestry];
     }

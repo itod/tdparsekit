@@ -39,8 +39,6 @@
     if (-1 == cin)
         return NO;
     
-    cin = cin.charCodeAt(0);
-    
     if (cin < 0 || cin > whitespaceChars.length - 1)
         return NO;
 

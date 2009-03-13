@@ -23,7 +23,7 @@
     [r setString:s];
     
     var c = [r read];
-    [self assert:c equals:'.'];
+    [self assert:String.fromCharCode(c) equals:'.'];
     
     var tok = [ss nextTokenFromReader:r startingWith:c tokenizer:nil];
     [self assert:@"." equals:tok.stringValue];
@@ -40,7 +40,7 @@
     [self assert:@"." equals:tok.stringValue];
     [self assert:@"." equals:[tok value]];
     [self assertTrue:tok.isSymbol];
-    [self assert:'a' equals:[r read]];
+    [self assert:'a'.charCodeAt(0) equals:[r read]];
 }
 
 - (void)testDotSpace
@@ -51,7 +51,7 @@
     [self assert:@"." equals:tok.stringValue];
     [self assert:@"." equals:[tok value]];
     [self assertTrue:tok.isSymbol];
-    [self assert:' ' equals:[r read]];
+    [self assert:' '.charCodeAt(0) equals:[r read]];
 }
 
 - (void)testDotDot
@@ -62,7 +62,7 @@
     [self assert:@"." equals:tok.stringValue];
     [self assert:@"." equals:[tok value]];
     [self assertTrue:tok.isSymbol];
-    [self assert:'.' equals:[r read]];
+    [self assert:'.'.charCodeAt(0) equals:[r read]];
 }
 
 
@@ -88,7 +88,7 @@
     [self assert:@".." equals:tok.stringValue];
     [self assert:@".." equals:[tok value]];
     [self assertTrue:tok.isSymbol];
-    [self assert:' ' equals:[r read]];
+    [self assert:' '.charCodeAt(0) equals:[r read]];
 }
 
 - (void)testAddColonEqual
@@ -112,7 +112,7 @@
     [self assert:@":=" equals:tok.stringValue];
     [self assert:@":=" equals:[tok value]];
     [self assertTrue:tok.isSymbol];
-    [self assert:' ' equals:[r read]];
+    [self assert:' '.charCodeAt(0) equals:[r read]];
 }
 
 - (void)testAddGtEqualLtSpace
@@ -124,7 +124,7 @@
     [self assert:@">=<" equals:tok.stringValue];
     [self assert:@">=<" equals:[tok value]];
     [self assertTrue:tok.isSymbol];
-    [self assert:' ' equals:[r read]];
+    [self assert:' '.charCodeAt(0) equals:[r read]];
 }
 
 - (void)testAddGtEqualLt

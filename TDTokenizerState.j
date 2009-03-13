@@ -15,14 +15,14 @@
     string = "";
 }
 
-- (void)append:(unsigned)c 
+- (void)append:(int)c 
 {
-    string = string+c;
+    string = string + String.fromCharCode(c);
 }
 
 - (void)appendString:(CPString)s 
 {
-    string = string+s;
+    string = string + s;
 }
 
 - (CPString)bufferedString 

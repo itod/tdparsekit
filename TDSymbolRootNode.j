@@ -14,19 +14,19 @@
 {
     if (s.length < 2) return;
     
-    [self addWithFirst:[s characterAtIndex:0] rest:[s substringFromIndex:1] parent:self];
+    [self addWithFirst:s.charCodeAt(0) rest:[s substringFromIndex:1] parent:self];
 }
 
 - (void)remove:(CPString)s 
 {
     if (s && s.length < 2) return;
     
-    [self removeWithFirst:[s characterAtIndex:0] rest:[s substringFromIndex:1] parent:self];
+    [self removeWithFirst:s.charCodeAt(0) rest:[s substringFromIndex:1] parent:self];
 }
 
 - (void)addWithFirst:(int)c rest:(CPString)s parent:(TDSymbolNode)p 
 {
-    var key = c,
+    var key = String.fromCharCode(c),
         child = [p.children objectForKey:key];
 
     if (!child) {
@@ -42,12 +42,12 @@
         rest = [s substringFromIndex:1];
     }
     
-    [self addWithFirst:[s characterAtIndex:0] rest:rest parent:child];
+    [self addWithFirst:s.charCodeAt(0) rest:rest parent:child];
 }
 
 - (void)removeWithFirst:(int)c rest:(CPString)s parent:(TDSymbolNode)p 
 {
-    var key = c,
+    var key = String.fromCharCode(c),
         child = [p.children objectForKey:key];
 
     if (child) {
@@ -57,7 +57,7 @@
             return;
         } else if (s.length > 1) {
             rest = [s substringFromIndex:1];
-            [self removeWithFirst:[s characterAtIndex:0] rest:rest parent:child];
+            [self removeWithFirst:s.charCodeAt(0) rest:rest parent:child];
         }
         
         [p.children removeObjectForKey:key];
@@ -72,7 +72,7 @@
 
 - (CPString)nextWithFirst:(int)c rest:(TDReader)r parent:(TDSymbolNode)p 
 {
-    var result = ""+c;
+    var result = String.fromCharCode(c);
 
     // this also works.
 //    NSString *result = [[[NSString alloc] initWithCharacters:(const unichar *)&c length:1] autorelease];
@@ -96,7 +96,7 @@
 //    NSLog(@"ascii: '%@'", ascii);
 //    NSLog(@"iso: '%@'", iso);
     
-    var key = c,
+    var key = String.fromCharCode(c),
         child = [p.children objectForKey:key];
     
     if (!child) {

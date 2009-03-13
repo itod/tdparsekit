@@ -21,8 +21,7 @@
 - (void)testReadCharsMatch
 {
     for (var i = 0; i < [string length]; i++) {
-        var c = [string characterAtIndex:i];
-        [self assert:c equals:[reader read]];
+        [self assert:string.charCodeAt(i) equals:[reader read]];
     }
 }
 
@@ -39,27 +38,26 @@
     [reader read];
     [reader unread];
     var a = 'a';
-    [self assert:a equals:[reader read]];
+    [self assert:a.charCodeAt(0) equals:[reader read]];
 
     [reader read];
     [reader read];
     [reader unread];
     var c = 'c';
-    [self assert:c equals:[reader read]];
+    [self assert:c.charCodeAt(0) equals:[reader read]];
 }
 
 - (void)testUnreadTooFar
 {
     [reader unread];
     var a = 'a';
-    [self assert:a equals:[reader read]];
+    [self assert:a.charCodeAt(0) equals:[reader read]];
 
     [reader unread];
     [reader unread];
     [reader unread];
     [reader unread];
-    var a2 = 'a';
-    [self assert:a2 equals:[reader read]];
+    [self assert:a.charCodeAt(0) equals:[reader read]];
 }
 
 @end
