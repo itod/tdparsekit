@@ -31,11 +31,11 @@
     var eof = [TDToken EOFToken];
     var tok = nil;
     
-    CPLog(@"\n\n starting!!! \n\n");
+    CPLog.info(@"\n\n starting!!! \n\n");
     while ((tok = [t nextToken]) != eof) {
-        CPLog(@"(%s)", tok.stringValue);
+        CPLog.info(@"(%s)", tok.stringValue);
     }
-    CPLog(@"\n\n done!!! \n\n");
+    CPLog.info(@"\n\n done!!! \n\n");
     
 }
 
@@ -48,7 +48,7 @@
     var tok = nil;
     
     while ((tok = [t nextToken]) != eof) {
-        CPLog(@"(%s) (%d) : %s", tok.stringValue, tok.floatValue, [tok debugDescription]);
+        CPLog.info(@"(%s) (%d) : %s", tok.stringValue, tok.floatValue, [tok debugDescription]);
     }
 }
 

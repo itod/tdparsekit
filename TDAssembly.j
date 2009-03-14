@@ -117,14 +117,14 @@ TDAssemblyDefaultDelimiter = @"/";
 }
 
 - (BOOL)isStackEmpty {
-    return 0 === stack.length;
+    return 0 === [stack length];
 }
 
 - (CPArray)objectsAbove:(id)fence 
 {
     var result = [];
     
-    while (stack.count) {        
+    while ([stack count]) {        
         var obj = [self pop];
         
         if ([obj isEqual:fence]) {
@@ -147,7 +147,7 @@ TDAssemblyDefaultDelimiter = @"/";
     for (;i<len;i++) {
         var obj = stack[i];
         s = s + [obj description];
-        if (len - 1 !== i++) {
+        if (len - 1 != i) {
             s = s + ", ";
         }
     }

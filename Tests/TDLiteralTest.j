@@ -13,7 +13,7 @@
 - (void)testTrueCompleteMatchForLiteral123 {
     s = @"123";
     a = [[TDTokenAssembly alloc] initWithString:s];
-    CPLog(@"a: %@", a);
+    //CPLog(@"a: %@", a);
     
     p = [TDNum num];
     var result = [p completeMatchFor:a];
@@ -26,7 +26,7 @@
     // -[TDLiteral qualifies:]
     // -[TDParser best:]
     
-    CPLog(@"result: %@", result);
+    //CPLog(@"result: %@", result);
     [self assertNotNull:result];
     [self assert:@"[123]123^" equals:[result description]];
 }

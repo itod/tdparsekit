@@ -80,7 +80,7 @@ TDTokenTypeComment      = 6;
     if (tokenType != tok.tokenType)
         return NO;
     
-    if (number)
+    if (isNumber)
         return floatValue == tok.floatValue;
     else 
     {

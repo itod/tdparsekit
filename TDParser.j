@@ -88,7 +88,7 @@
             break;
         }
         
-        if (!best || a.objectsConsumed > best.objectsConsumed)
+        if (!best || [a objectsConsumed] > [best objectsConsumed])
             best = a;
     }
     

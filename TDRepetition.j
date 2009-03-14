@@ -52,9 +52,19 @@
             [preassembler performSelector:preassemblerSelector withObject:values[a]];
     }
     
-    //NSMutableSet *outAssemblies = [[[NSSet alloc] initWithSet:inAssemblies copyItems:YES] autorelease];
-    var outAssemblies = [inAssemblies copy],
-        s = inAssemblies;
+    // I think there's a bug in CPSet, otherwise either of these lines would work
+    // var outAssemblies = [[CPSet alloc] initWithSet:inAssemblies copyItems:NO],
+    // var outAssemblies = [inAssemblies copy];
+    
+    // instead, copy by hand
+    // begin workaround
+    var outAssemblies = [CPSet set];
+    var items = [inAssemblies allObjects];
+    for (var i = 0, count = [items count]; i < count; i++)
+        [outAssemblies addObject:items[i]];
+    // end
+
+    var s = inAssemblies;
 
     while ([s count]) {
         s = [subparser matchAndAssemble:s];

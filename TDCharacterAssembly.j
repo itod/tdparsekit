@@ -59,12 +59,12 @@
 
 - (CPString)consumedObjectsJoinedByString:(CPString)delimiter 
 {
-    return [string substringToIndex:self.objectsConsumed];
+    return [string substringToIndex:[self objectsConsumed]];
 }
 
 - (CPString)remainingObjectsJoinedByString:(CPString)delimiter 
 {
-    return [string substringFromIndex:self.objectsConsumed];
+    return [string substringFromIndex:[self objectsConsumed]];
 }
 
 // overriding simply to print NSNumber objects as their unichar values
