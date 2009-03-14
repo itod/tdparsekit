@@ -36,7 +36,7 @@
     var a = [TDTokenAssembly assemblyWithString:s];
     a = [self completeMatchFor:a];
     //CPLog(@"\n\na: %@\n\n", a);
-    var n = parseInt([a pop]);
+    var n = parseFloat([a pop]);
     return n;
 }
 
@@ -162,53 +162,61 @@
         [phraseParser add:s];
         
         var n = [TDNum num];
+        [n setAssembler:self selector:@selector(workOnNumAssembly:)];
         [phraseParser add:n];
     }
     return phraseParser;
 }
 
 
+- (void)workOnNumAssembly:(TDAssembly)a {
+    var tok = [a pop];
+    [a push:tok.floatValue];
+}
+
+
 - (void)workOnPlusAssembly:(TDAssembly)a {
-    var tok2 = [a pop];
-    var tok1 = [a pop];
-    [a push:tok1.floatValue + tok2.floatValue];
+    var n2 = [a pop];
+    var n1 = [a pop];
+    [a push:n1 + n2];
 }
 
 
 - (void)workOnMinusAssembly:(TDAssembly)a {
-    var tok2 = [a pop];
-    var tok1 = [a pop];
-    [a push:tok1.floatValue - tok2.floatValue];
+    var n2 = [a pop];
+    var n1 = [a pop];
+    var n = n1 - n2;
+    [a push:n];
 }
 
 
 - (void)workOnTimesAssembly:(TDAssembly)a {
-    var tok2 = [a pop];
-    var tok1 = [a pop];
-    [a push:tok1.floatValue * tok2.floatValue];
+    var n2 = [a pop];
+    var n1 = [a pop];
+    [a push:n1 * n2];
 }
 
 
 - (void)workOnDivideAssembly:(TDAssembly)a {
-    var tok2 = [a pop];
-    var tok1 = [a pop];
-    [a push:tok1.floatValue / tok2.floatValue];
+    var n2 = [a pop];
+    var n1 = [a pop];
+    [a push:n1 / n2];
 }
 
 
 - (void)workOnExpAssembly:(TDAssembly)a {
-    var tok2 = [a pop];
-    var tok1 = [a pop];
+    var n2 = [a pop];
+    var n1 = [a pop];
     
-    var n1 = tok1.floatValue;
-    var n2 = tok2.floatValue;
+    var n1 = n1;
+    var n2 = n2;
     
-    var res = n1;
+    var total = n1;
     for (var i = 1; i < n2; i++) {
-        res *= n1;
+        total *= n1;
     }
     
-    [a push:res];
+    [a push:total];
 }
 
 @end

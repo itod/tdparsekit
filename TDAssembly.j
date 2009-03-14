@@ -111,9 +111,9 @@ TDAssemblyDefaultDelimiter = @"/";
 
 - (void)push:(id)object 
 {
-    if (object) {
+//    if (object) {
         [stack addObject:object];
-    }
+//    }
 }
 
 - (BOOL)isStackEmpty {
