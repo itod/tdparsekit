@@ -1,35 +1,43 @@
 
 @import <Foundation/Foundation.j>
 
+@import "TDReader.j"
 
-@import "TDAssembly.j"
+// Chars
 @import "TDCharacterAssembly.j"
+@import "TDCharTerminals.j"
+
+// Tokens
 @import "TDToken.j"
+@import "TDTokenizer.j"
+@import "TDAssembly.j"
 @import "TDTokenArraySource.j"
 @import "TDTokenAssembly.j"
 
-@import "TDAlternation.j"
-@import "TDCharTerminals.j"
-@import "TDCollectionParser.j"
-@import "TDCommentState.j"
-@import "TDEmpty.j"
-@import "TDMultiLineCommentState.j"
+// Tokenizer States
+@import "TDTokenizerState.j"
+@import "TDWhitespaceState.j"
 @import "TDNumberState.j"
-@import "TDParser.j"
 @import "TDQuoteState.j"
-@import "TDReader.j"
-@import "TDRepetition.j"
+@import "TDWordState.j"
+@import "TDCommentState.j"
+@import "TDMultiLineCommentState.j"
 @import "TDScientificNumberState.j"
-@import "TDSequence.j"
 @import "TDSingleLineCommentState.j"
+@import "TDSymbolState.j"
 @import "TDSymbolNode.j"
 @import "TDSymbolRootNode.j"
-@import "TDSymbolState.j"
+
+// Parse
+@import "TDParser.j"
+@import "TDEmpty.j"
+@import "TDRepetition.j"
+@import "TDCollectionParser.j"
+@import "TDAlternation.j"
+@import "TDSequence.j"
+@import "TDTrack.j"
 @import "TDTerminal.j"
+
+// Token Terminals
 @import "TDTokenTerminals.j"
 @import "TDTokenTerminalsExtensions.j"
-@import "TDTokenizer.j"
-@import "TDTokenizerState.j"
-@import "TDTrack.j"
-@import "TDWhitespaceState.j"
-@import "TDWordState.j"
