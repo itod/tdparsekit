@@ -105,8 +105,7 @@
 
 - (id)initWithString:(CPString)s 
 {
-    self = [super initWithString:s];
-    if (self) {
+    if ([super initWithString:s]) {
         if (s.length) {
             self.symbol = [TDToken tokenWithTokenType:TDTokenTypeSymbol stringValue:s floatValue:0.0];
         }
@@ -172,8 +171,7 @@
 
 - (id)initWithString:(CPString)s 
 {
-    self = [super initWithString:s];
-    if (self) {
+    if ([super initWithString:s]) {
         self.literal = [TDToken tokenWithTokenType:TDTokenTypeWord stringValue:s floatValue:0.0];
     }
     return self;
