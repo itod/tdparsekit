@@ -1,6 +1,8 @@
 @import "TDToken.j"
 
-@implementation TDUppercaseWord
+@implementation TDUppercaseWord : TDWord {
+    
+}
 
 - (BOOL)qualifies:(id)obj
 {
@@ -8,8 +10,12 @@
         return NO;
     }
     
-    CPString s = tok.stringValue;
-    return s.length && isupper([s characterAtIndex:0]);
+    var s = tok.stringValue;
+    if (!s.length)
+        return NO;
+        
+    var c = s.charCodeAt(0);
+    return c >= 'A'.charCodeAt(0) && c <= 'Z'.charCodeAt(0);
 }
 
 @end

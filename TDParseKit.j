@@ -1,10 +1,15 @@
 
 @import <Foundation/Foundation.j>
 
-@import "TDAlternation.j"
+
 @import "TDAssembly.j"
-@import "TDCharTerminals.j"
 @import "TDCharacterAssembly.j"
+@import "TDToken.j"
+@import "TDTokenArraySource.j"
+@import "TDTokenAssembly.j"
+
+@import "TDAlternation.j"
+@import "TDCharTerminals.j"
 @import "TDCollectionParser.j"
 @import "TDCommentState.j"
 @import "TDEmpty.j"
@@ -21,9 +26,6 @@
 @import "TDSymbolRootNode.j"
 @import "TDSymbolState.j"
 @import "TDTerminal.j"
-@import "TDToken.j"
-@import "TDTokenArraySource.j"
-@import "TDTokenAssembly.j"
 @import "TDTokenTerminals.j"
 @import "TDTokenTerminalsExtensions.j"
 @import "TDTokenizer.j"
@@ -31,15 +33,3 @@
 @import "TDTrack.j"
 @import "TDWhitespaceState.j"
 @import "TDWordState.j"
-
-// @import "TDAny.j"
-// @import "TDEmpty.j"
-// @import "TDComment.j"
-// @import "TDLiteral.j"
-// @import "TDCaseInsensitiveLiteral.j"
-// @import "TDNum.j"
-// @import "TDQuotedString.j"
-// @import "TDSymbol.j"
-// @import "TDWord.j"
-// @import "TDUppercaseWord.j"
-// @import "TDLowercaseWord.j"

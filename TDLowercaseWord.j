@@ -11,8 +11,12 @@
         return NO;
     }
     
-    CPString s = obj.stringValue;
-    return s.length && islower([s characterAtIndex:0]);
+    var s = obj.stringValue;
+    if (!s.length)
+        return NO;
+        
+    var c = s.charCodeAt(0);
+    return c >= 'a'.charCodeAt(0) && c <= 'z'.charCodeAt(0);
 }
 
 @end

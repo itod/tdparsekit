@@ -28,7 +28,7 @@
 
 - (CPString)description
 {
-    CPString className = [[self className] substringFromIndex:2];
+    var className = [[self className] substringFromIndex:2];
     if (name.length) {
         return [CPString stringWithFormat:@"%s (%s) %s", className, name, literal.stringValue];
     } else {

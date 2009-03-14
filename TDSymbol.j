@@ -38,18 +38,18 @@
 
 - (CPString)description
 {
-    CPString className = [[self className] substringFromIndex:2];
+    var className = [[self className] substringFromIndex:2];
     if (name.length) {
         if (symbol) {
-            return [CPString stringWithFormat:@"%@ (%@) %@", className, name, symbol.stringValue];
+            return [CPString stringWithFormat:@"%s (%s) %s", className, name, symbol.stringValue];
         } else {
-            return [CPString stringWithFormat:@"%@ (%@)", className, name];
+            return [CPString stringWithFormat:@"%s (%s)", className, name];
         }
     } else {
         if (symbol) {
-            return [CPString stringWithFormat:@"%@ %@", className, symbol.stringValue];
+            return [CPString stringWithFormat:@"%s %s", className, symbol.stringValue];
         } else {
-            return [CPString stringWithFormat:@"%@", className];
+            return [CPString stringWithFormat:@"%s", className];
         }
     }
 }
