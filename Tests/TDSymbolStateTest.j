@@ -228,42 +228,42 @@
     [self assertTrue:([TDToken EOFToken] === [t nextToken])];
 }
 
-// - (void)testTokenzierAddGtEqualLtSpaceDotSpace
-// {
-//     s = @">=< . ";
-//     var t = [TDTokenizer tokenizerWithString:s];
-//     [t.symbolState add:@">=<"];
-//     var tok = [t nextToken];
-//     [self assert:@">=<" equals:tok.stringValue];
-//     [self assert:@">=<" equals:[tok value]];
-//     [self assertTrue:tok.isSymbol];
-//     
-//     tok = [t nextToken];
-//     [self assert:@"." equals:tok.stringValue];
-//     [self assert:@"." equals:[tok value]];
-//     [self assertTrue:tok.isSymbol];
-//     
-//     [self assertTrue:([TDToken EOFToken] === [t nextToken])];
-// }
-// 
-// - (void)testTokenzierAddLtBangDashDashSpaceDotSpace
-// {
-//     s = @"<!-- . ";
-//     var t = [TDTokenizer tokenizerWithString:s];
-//     [t.symbolState add:@"<!--"];
-//     var tok = [t nextToken];
-//     [self assert:@"<!--" equals:tok.stringValue];
-//     [self assert:@"<!--" equals:[tok value]];
-//     [self assertTrue:tok.isSymbol];
-//     
-//     tok = [t nextToken];
-//     [self assert:@"." equals:tok.stringValue];
-//     [self assert:@"." equals:[tok value]];
-//     [self assertTrue:tok.isSymbol];
-//     
-//     [self assertTrue:([TDToken EOFToken] === [t nextToken])];
-// }
-// 
+- (void)testTokenzierAddGtEqualLtSpaceDotSpace
+{
+    s = @">=< . ";
+    var t = [TDTokenizer tokenizerWithString:s];
+    [t.symbolState add:@">=<"];
+    var tok = [t nextToken];
+    [self assert:@">=<" equals:tok.stringValue];
+    [self assert:@">=<" equals:[tok value]];
+    [self assertTrue:tok.isSymbol];
+    
+    tok = [t nextToken];
+    [self assert:@"." equals:tok.stringValue];
+    [self assert:@"." equals:[tok value]];
+    [self assertTrue:tok.isSymbol];
+    
+    [self assertTrue:([TDToken EOFToken] === [t nextToken])];
+}
+
+- (void)testTokenzierAddLtBangDashDashSpaceDotSpace
+{
+    s = @"<!-- . ";
+    var t = [TDTokenizer tokenizerWithString:s];
+    [t.symbolState add:@"<!--"];
+    var tok = [t nextToken];
+    [self assert:@"<!--" equals:tok.stringValue];
+    [self assert:@"<!--" equals:[tok value]];
+    [self assertTrue:tok.isSymbol];
+    
+    tok = [t nextToken];
+    [self assert:@"." equals:tok.stringValue];
+    [self assert:@"." equals:[tok value]];
+    [self assertTrue:tok.isSymbol];
+    
+    [self assertTrue:([TDToken EOFToken] === [t nextToken])];
+}
+
 - (void)testTokenzierAddDashDashGt
 {
     s = @"-->";
@@ -278,42 +278,42 @@
     [self assertTrue:([TDToken EOFToken] === [t nextToken])];
 }
 
-// - (void)testTokenzierAddDashDashGtSpaceDot
-// {
-//     s = @"--> .";
-//     var t = [TDTokenizer tokenizerWithString:s];
-//     [t.symbolState add:@"-->"];
-//     var tok = [t nextToken];
-//     [self assertTrue:tok.isSymbol];
-//     [self assert:@"-->" equals:tok.stringValue];
-//     [self assert:@"-->" equals:[tok value]];
-//     
-//     tok = [t nextToken];
-//     [self assert:@"." equals:tok.stringValue];
-//     [self assert:@"." equals:[tok value]];
-//     [self assertTrue:tok.isSymbol];
-//     
-//     [self assertTrue:([TDToken EOFToken] === [t nextToken])];
-// }
-// 
-// - (void)testTokenzierAddDashDashGtSpaceDotSpace
-// {
-//     s = @"--> . ";
-//     var t = [TDTokenizer tokenizerWithString:s];
-//     [t.symbolState add:@"-->"];
-//     var tok = [t nextToken];
-//     [self assertTrue:tok.isSymbol];
-//     [self assert:@"-->" equals:tok.stringValue];
-//     [self assert:@"-->" equals:[tok value]];
-//     
-//     tok = [t nextToken];
-//     [self assert:@"." equals:tok.stringValue];
-//     [self assert:@"." equals:[tok value]];
-//     [self assertTrue:tok.isSymbol];
-//     
-//     [self assertTrue:([TDToken EOFToken] === [t nextToken])];
-// }
-// 
+- (void)testTokenzierAddDashDashGtSpaceDot
+{
+    s = @"--> .";
+    var t = [TDTokenizer tokenizerWithString:s];
+    [t.symbolState add:@"-->"];
+    var tok = [t nextToken];
+    [self assertTrue:tok.isSymbol];
+    [self assert:@"-->" equals:tok.stringValue];
+    [self assert:@"-->" equals:[tok value]];
+    
+    tok = [t nextToken];
+    [self assert:@"." equals:tok.stringValue];
+    [self assert:@"." equals:[tok value]];
+    [self assertTrue:tok.isSymbol];
+    
+    [self assertTrue:([TDToken EOFToken] === [t nextToken])];
+}
+
+- (void)testTokenzierAddDashDashGtSpaceDotSpace
+{
+    s = @"--> . ";
+    var t = [TDTokenizer tokenizerWithString:s];
+    [t.symbolState add:@"-->"];
+    var tok = [t nextToken];
+    [self assertTrue:tok.isSymbol];
+    [self assert:@"-->" equals:tok.stringValue];
+    [self assert:@"-->" equals:[tok value]];
+    
+    tok = [t nextToken];
+    [self assert:@"." equals:tok.stringValue];
+    [self assert:@"." equals:[tok value]];
+    [self assertTrue:tok.isSymbol];
+    
+    [self assertTrue:([TDToken EOFToken] === [t nextToken])];
+}
+
 - (void)testTokenzierAddDashDash
 {
     s = @"--";
@@ -328,41 +328,41 @@
     [self assertTrue:([TDToken EOFToken] === [t nextToken])];
 }
 
-// - (void)testTokenzierAddDashDashSpaceDot
-// {
-//     s = @"-- .";
-//     var t = [TDTokenizer tokenizerWithString:s];
-//     [t.symbolState add:@"--"];
-//     var tok = [t nextToken];
-//     [self assertTrue:tok.isSymbol];
-//     [self assert:@"--" equals:tok.stringValue];
-//     [self assert:@"--" equals:[tok value]];
-//     
-//     tok = [t nextToken];
-//     [self assert:@"." equals:tok.stringValue];
-//     [self assert:@"." equals:[tok value]];
-//     [self assertTrue:tok.isSymbol];
-//     
-//     [self assertTrue:([TDToken EOFToken] === [t nextToken])];
-// }
-// 
-// - (void)testTokenzierAddDashDashSpaceDotSpace
-// {
-//     s = @"-- . ";
-//     var t = [TDTokenizer tokenizerWithString:s];
-//     [t.symbolState add:@"--"];
-//     var tok = [t nextToken];
-//     [self assertTrue:tok.isSymbol];
-//     [self assert:@"--" equals:tok.stringValue];
-//     [self assert:@"--" equals:[tok value]];
-//     
-//     tok = [t nextToken];
-//     [self assert:@"." equals:tok.stringValue];
-//     [self assert:@"." equals:[tok value]];
-//     [self assertTrue:tok.isSymbol];
-//     
-//     [self assertTrue:([TDToken EOFToken] === [t nextToken])];
-// }
+- (void)testTokenzierAddDashDashSpaceDot
+{
+    s = @"-- .";
+    var t = [TDTokenizer tokenizerWithString:s];
+    [t.symbolState add:@"--"];
+    var tok = [t nextToken];
+    [self assertTrue:tok.isSymbol];
+    [self assert:@"--" equals:tok.stringValue];
+    [self assert:@"--" equals:[tok value]];
+    
+    tok = [t nextToken];
+    [self assert:@"." equals:tok.stringValue];
+    [self assert:@"." equals:[tok value]];
+    [self assertTrue:tok.isSymbol];
+    
+    [self assertTrue:([TDToken EOFToken] === [t nextToken])];
+}
+
+- (void)testTokenzierAddDashDashSpaceDotSpace
+{
+    s = @"-- . ";
+    var t = [TDTokenizer tokenizerWithString:s];
+    [t.symbolState add:@"--"];
+    var tok = [t nextToken];
+    [self assertTrue:tok.isSymbol];
+    [self assert:@"--" equals:tok.stringValue];
+    [self assert:@"--" equals:[tok value]];
+    
+    tok = [t nextToken];
+    [self assert:@"." equals:tok.stringValue];
+    [self assert:@"." equals:[tok value]];
+    [self assertTrue:tok.isSymbol];
+    
+    [self assertTrue:([TDToken EOFToken] === [t nextToken])];
+}
 
 - (void)testTokenzierEqualEqualEqualButNotEqual
 {
@@ -426,28 +426,28 @@
     [self assertTrue:([TDToken EOFToken] === [t nextToken])];
 }
 
-// - (void)testTokenzierEqualEqualEqualCompareEqualEqualEqualEqualEqualSpaceEqual
-// {
-//     s = @"===== =";
-//     var t = [TDTokenizer tokenizerWithString:s];
-//     [t.symbolState add:@"==="];
-//     var tok = [t nextToken];
-//     [self assertTrue:tok.isSymbol];
-//     [self assert:@"===" equals:tok.stringValue];
-//     [self assert:@"===" equals:[tok value]];
-//     
-//     tok = [t nextToken];
-//     [self assertTrue:tok.isSymbol];
-//     [self assert:@"==" equals:tok.stringValue];
-//     [self assert:@"==" equals:[tok value]];
-//     
-//     tok = [t nextToken];
-//     [self assertTrue:tok.isSymbol];
-//     [self assert:@"=" equals:tok.stringValue];
-//     [self assert:@"=" equals:[tok value]];
-//     
-//     [self assertTrue:([TDToken EOFToken] === [t nextToken])];
-// }
+- (void)testTokenzierEqualEqualEqualCompareEqualEqualEqualEqualEqualSpaceEqual
+{
+    s = @"===== =";
+    var t = [TDTokenizer tokenizerWithString:s];
+    [t.symbolState add:@"==="];
+    var tok = [t nextToken];
+    [self assertTrue:tok.isSymbol];
+    [self assert:@"===" equals:tok.stringValue];
+    [self assert:@"===" equals:[tok value]];
+    
+    tok = [t nextToken];
+    [self assertTrue:tok.isSymbol];
+    [self assert:@"==" equals:tok.stringValue];
+    [self assert:@"==" equals:[tok value]];
+    
+    tok = [t nextToken];
+    [self assertTrue:tok.isSymbol];
+    [self assert:@"=" equals:tok.stringValue];
+    [self assert:@"=" equals:[tok value]];
+    
+    [self assertTrue:([TDToken EOFToken] === [t nextToken])];
+}
 
 - (void)testTokenzierEqualEqualEqualEqual
 {
