@@ -1,15 +1,15 @@
 @import "TDToken.j"
 
-@implementation TDWord
+@implementation TDQuotedString
 
-+ (id)word
++ (id)quotedString
 {
     return [[self alloc] initWithString:nil];
 }
 
 - (BOOL)qualifies:(id)obj
 {
-    return obj.isWord;
+    return tok.isQuotedString;
 }
 
 @end
