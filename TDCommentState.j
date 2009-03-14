@@ -63,10 +63,10 @@
         singleLineState.currentStartSymbol = symbol;
         return [singleLineState nextTokenFromReader:r startingWith:cin tokenizer:t];
     } else {
-        for (var i=0, length = symbol.length ; i < symbol.length - 1; i++) {
+        for (var i=0, length = symbol.length ; i < length - 1; i++) {
             [r unread];
         }
-        return [TDToken tokenWithTokenType:TDTokenTypeSymbol stringValue:[CPString stringWithFormat:@"%C", cin] floatValue:0.0];
+        return [TDToken tokenWithTokenType:TDTokenTypeSymbol stringValue:String.fromCharCode(cin) floatValue:0.0];
     }
 }
 

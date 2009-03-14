@@ -45,7 +45,7 @@
     var c;
     while (1) {
         c = [r read];
-        if ('\n' == c || '\r' == c || -1 == c) {
+        if ('\n'.charCodeAt(0) == c || '\r'.charCodeAt(0) == c || -1 == c) {
             break;
         }
         if (reportTokens) {

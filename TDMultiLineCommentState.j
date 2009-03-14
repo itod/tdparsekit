@@ -56,7 +56,7 @@
     
     var i = [startSymbols indexOfObject:currentStartSymbol],
         currentEndSymbol = [endSymbols objectAtIndex:i],
-        e = [currentEndSymbol characterAtIndex:0];
+        e = currentEndSymbol.charCodeAt(0);
     
     // get the definitions of all multi-char comment start and end symbols from the commentState
     var rootNode = t.commentState.rootNode, 
@@ -81,7 +81,7 @@
                 break;
             } else {
                 [self unreadSymbol:peek fromReader:r];
-                if (e != [peek characterAtIndex:0]) {
+                if (e != peek.charCodeAt(0)) {
                     if (reportTokens) {
                         [self append:c];
                     }
