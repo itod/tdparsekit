@@ -1,6 +1,9 @@
+@import "TDTerminal.j"
 @import "TDToken.j"
 
-@implementation TDAny
+@implementation TDAny : TDTerminal
+{
+}
 
 + (id)any
 {

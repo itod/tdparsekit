@@ -1,6 +1,10 @@
+@import "TDTerminal.j"
 @import "TDToken.j"
 
-@implementation TDQuotedString
+@implementation TDQuotedString : TDTerminal
+{
+    
+}
 
 + (id)quotedString
 {

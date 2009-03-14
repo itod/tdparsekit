@@ -1,6 +1,10 @@
+@import "TDTerminal.j"
 @import "TDToken.j"
 
-@implementation TDLiteral
+@implementation TDLiteral : TDTerminal
+{
+    TDToken literal;
+}
 
 + (id)literalWithString:(CPString)s
 {
@@ -10,9 +14,8 @@
 - (id)initWithString:(CPString)s
 {
     //NSParameterAssert(s);
-    self = [super initWithString:s];
-    if (self) {
-        self.literal = [TDToken tokenWithTokenType:TDTokenTypeWord stringValue:s floatValue:0.0];
+    if (self = [super initWithString:s]) {
+        literal = [TDToken tokenWithTokenType:TDTokenTypeWord stringValue:s floatValue:0.0];
     }
     return self;
 }
@@ -27,9 +30,9 @@
 {
     CPString className = [[self className] substringFromIndex:2];
     if (name.length) {
-        return [CPString stringWithFormat:@"%@ (%@) %@", className, name, literal.stringValue];
+        return [CPString stringWithFormat:@"%s (%s) %s", className, name, literal.stringValue];
     } else {
-        return [CPString stringWithFormat:@"%@ %@", className, literal.stringValue];
+        return [CPString stringWithFormat:@"%s %s", className, literal.stringValue];
     }
 }
 

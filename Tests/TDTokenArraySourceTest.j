@@ -25,21 +25,21 @@
     [self assertTrue:[tas hasMore]];
     var a = [tas nextTokenArray];
     [self assertNotNull:a];
-    [self assert:2 equals:a.count];
+    [self assert:2 equals:[a count]];
     [self assert:@"I" equals:[a objectAtIndex:0].stringValue];
     [self assert:@"came" equals:[a objectAtIndex:1].stringValue];
 
     [self assertTrue:[tas hasMore]];
     a = [tas nextTokenArray];
     [self assertNotNull:a];
-    [self assert:2 equals:a.count];
+    [self assert:2 equals:[a count]];
     [self assert:@"I" equals:[a objectAtIndex:0].stringValue];
     [self assert:@"saw" equals:[a objectAtIndex:1].stringValue];
 
     [self assertTrue:[tas hasMore]];
     a = [tas nextTokenArray];
     [self assertNotNull:a];
-    [self assert:5 equals:a.count];
+    [self assert:5 equals:[a count]];
     [self assert:@"I" equals:[a objectAtIndex:0].stringValue];
     [self assert:@"left" equals:[a objectAtIndex:1].stringValue];
     [self assert:@"in" equals:[a objectAtIndex:2].stringValue];

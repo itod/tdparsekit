@@ -1,7 +1,8 @@
-
+@import "TDTerminal.j"
 @import "TDParser.j"
 
-@implementation TDEmpty : TDParser {
+@implementation TDEmpty : TDParser
+{
 
 }
 

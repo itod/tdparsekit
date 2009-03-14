@@ -1,6 +1,10 @@
+@import "TDTerminal.j"
 @import "TDToken.j"
 
-@implementation TDComment
+@implementation TDComment : TDTerminal
+{
+    
+}
 
 + (id)comment
 {

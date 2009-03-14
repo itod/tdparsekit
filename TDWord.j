@@ -1,6 +1,9 @@
+@import "TDTerminal.j"
 @import "TDToken.j"
 
-@implementation TDWord
+@implementation TDWord : TDTerminal {
+    
+}
 
 + (id)word
 {

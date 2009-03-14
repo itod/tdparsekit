@@ -1,6 +1,10 @@
+@import "TDTerminal.j"
 @import "TDToken.j"
 
-@implementation TDNum
+@implementation TDNum : TDTerminal 
+{
+    
+}
 
 + (id)num
 {

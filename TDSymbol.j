@@ -1,6 +1,10 @@
+@import "TDTerminal.j"
 @import "TDToken.j"
 
-@implementation TDSymbol
+@implementation TDSymbol : TDTerminal
+{
+    TDToken symbol;
+}
 
 + (id)symbol
 {
@@ -15,10 +19,9 @@
 
 - (id)initWithString:(CPString)s
 {
-    self = [super initWithString:s];
-    if (self) {
+    if (self = [super initWithString:s]) {
         if (s.length) {
-            self.symbol = [TDToken tokenWithTokenType:TDTokenTypeSymbol stringValue:s floatValue:0.0];
+            symbol = [TDToken tokenWithTokenType:TDTokenTypeSymbol stringValue:s floatValue:0.0];
         }
     }
     return self;

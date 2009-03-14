@@ -1,6 +1,9 @@
 @import "TDToken.j"
 
-@implementation TDLowercaseWord
+@implementation TDLowercaseWord : TDWord
+{
+    
+}
 
 - (BOOL)qualifies:(id)obj
 {

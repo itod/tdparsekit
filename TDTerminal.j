@@ -1,7 +1,6 @@
-
 @import "TDParser.j"
 @import "TDToken.j"
-@improt "TDAssembly.j"
+@import "TDAssembly.j"
 
 @implementation TDTerminal : TDParser 
 {
