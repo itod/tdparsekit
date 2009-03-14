@@ -11,27 +11,29 @@
 {
     [super parseRightSideFromReader:r];
 
-    if ('e' == c || 'E' == c) {
-        var e = c;
-        c = [r read];
-        
-        var hasExp = (parseInt(c) >= 0 || parseInt(c) <= 9),
-            negativeExp = ('-' == c),
-            positiveExp = ('+' == c);
+    var smallE = 'e'.charCodeAt(0) == c;
+    var bigE = 'E'.charCodeAt(0) == c; 
 
-        if (!hasExp && (negativeExp || positiveExp)) {
+    if (smallE || bigE) {
+        c = [r read];
+                
+        var hasExp = (c >= '0'.charCodeAt(0) && c <= '9'.charCodeAt(0)),
+            negativeExp = ('-'.charCodeAt(0) == c),
+            positiveExp = ('+'.charCodeAt(0) == c);
+
+        if (!hasExp && (!!negativeExp || !!positiveExp)) {
             c = [r read];
-            hasExp = (parseInt(c) >= 0 || parseInt(c) <= 9);
+            hasExp = (c >= '0'.charCodeAt(0) || c <= '9'.charCodeAt(0));
         }
         if (-1 != c) {
             [r unread];
         }
         if (hasExp) {
-            [self append:e];
+            [self appendString:(smallE ? "e" : "E")];
             if (negativeExp) {
-                [self append:'-'];
+                [self appendString:'-'];
             } else if (positiveExp) {
-                [self append:'+'];
+                [self appendString:'+'];
             }
             c = [r read];
             exp = [super absorbDigitsFromReader:r isFraction:NO];
@@ -52,7 +54,7 @@
     
     for (var i=0 ; i < exp; i++) {
         if (negativeExp) {
-            result /= 10.0;
+            result = result / 10.0;
         } else {
             result *= 10.0;
         }
