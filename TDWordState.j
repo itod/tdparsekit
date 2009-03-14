@@ -16,12 +16,12 @@
             [wordChars addObject:NO];
         }
         
-        [self setWordChars:YES from: 'a' to: 'z'];
-        [self setWordChars:YES from: 'A' to: 'Z'];
-        [self setWordChars:YES from: '0' to: '9'];
-        [self setWordChars:YES from: '-' to: '-'];
-        [self setWordChars:YES from: '_' to: '_'];
-        [self setWordChars:YES from:'\'' to:'\''];
+        [self setWordChars:YES from: 'a'.charCodeAt(0) to: 'z'.charCodeAt(0)];
+        [self setWordChars:YES from: 'A'.charCodeAt(0) to: 'Z'.charCodeAt(0)];
+        [self setWordChars:YES from: '0'.charCodeAt(0) to: '9'.charCodeAt(0)];
+        [self setWordChars:YES from: '-'.charCodeAt(0) to: '-'.charCodeAt(0)];
+        [self setWordChars:YES from: '_'.charCodeAt(0) to: '_'.charCodeAt(0)];
+        [self setWordChars:YES from:'\''.charCodeAt(0) to:'\''.charCodeAt(0)];
         [self setWordChars:YES from: 192 to: 255];
     }
 
@@ -40,7 +40,7 @@
     }
 }
 
-- (BOOL)isWordChar:(unsigned)c 
+- (BOOL)isWordChar:(int)c 
 {    
     if (c > -1 && c < wordChars.length - 1) {
         return (!![wordChars objectAtIndex:c]);
@@ -63,7 +63,7 @@
     }
 }
 
-- (TDToken)nextTokenFromReader:(TDReader)r startingWith:(unsigned)cin tokenizer:(TDTokenizer)t 
+- (TDToken)nextTokenFromReader:(TDReader)r startingWith:(int)cin tokenizer:(TDTokenizer)t 
 {
     [self reset];
     
