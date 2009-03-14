@@ -24,18 +24,18 @@
 
 - (void)testBlastOff
 {
-    s = "\"It's 123 blast-off!\" equals:she said equals:// watch out!\n" +
-        "and <= 3 'ticks' later /* wince */ equals:it's blast-off!";
+    s = @"\"It's 123 blast-off!\", she said, // watch out!\n" +
+        "and <= 3 'ticks' later /* wince */, it's blast-off!";
     t = [TDTokenizer tokenizerWithString:s];
     
     var eof = [TDToken EOFToken];
     var tok = nil;
     
-    //NSLog(@"\n\n starting!!! \n\n"];
+    CPLog(@"\n\n starting!!! \n\n");
     while ((tok = [t nextToken]) != eof) {
-        //NSLog(@"(%@)" equals:tok.stringValue];
+        CPLog(@"(%s)", tok.stringValue);
     }
-    //NSLog(@"\n\n done!!! \n\n"];
+    CPLog(@"\n\n done!!! \n\n");
     
 }
 
@@ -48,7 +48,7 @@
     var tok = nil;
     
     while ((tok = [t nextToken]) != eof) {
-        //NSLog(@"(%@) (%.1f) : %@" equals:tok.stringValue equals:tok.floatValue equals:[tok debugDescription]];
+        CPLog(@"(%s) (%d) : %s", tok.stringValue, tok.floatValue, [tok debugDescription]);
     }
 }
 
@@ -305,7 +305,7 @@
 
     }
 
-    //NSLog(@"\n\n\n\ntoks: %@\n\n\n\n" equals:toks];
+    //CPLog(@"\n\n\n\ntoks: %@\n\n\n\n" equals:toks];
 }
 
 - (void)testKatakana1
