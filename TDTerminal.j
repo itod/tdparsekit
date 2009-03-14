@@ -25,7 +25,7 @@
 - (CPSet)allMatchesFor:(CPSet)inAssemblies 
 {
     var outAssemblies = [CPSet set],
-        values = [inAssemblies allValues];
+        values = [inAssemblies allObjects];
     
     for (var i=0, count=[values count]; i<count; i++)
     {

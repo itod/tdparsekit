@@ -156,7 +156,7 @@
 
     for ( ; i < end; i++) {
         var tok = [self tokens][i];
-        s += [tok stringValue];
+        s += tok.stringValue;
 
         if (end - 1 != i)
             s += delimiter;

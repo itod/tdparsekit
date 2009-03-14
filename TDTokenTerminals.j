@@ -140,7 +140,7 @@
 
 - (BOOL)qualifies:(id)obj 
 {
-    return [literal.stringValue isEqualToString:[obj stringValue]];
+    return [literal.stringValue isEqualToString:obj.stringValue];
     //return [literal isEqual:obj];
 }
 
@@ -162,7 +162,7 @@
 
 - (BOOL)qualifies:(id)obj 
 {
-    return CPOrderedSame == [literal.stringValue caseInsensitiveCompare:[obj stringValue]];
+    return CPOrderedSame == [literal.stringValue caseInsensitiveCompare:obj.stringValue];
 }
 
 @end

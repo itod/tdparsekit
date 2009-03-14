@@ -63,7 +63,7 @@
 
     if (assembler) {
         //NSAssert2([assembler respondsToSelector:selector], @"provided assembler %@ should respond to %s", assembler, selector);
-        var values = [outAssemblies allValues],
+        var values = [outAssemblies allObjects],
             length = [values count];
 
         for (var i=0; i<length; i++) {
@@ -77,7 +77,7 @@
 - (TDAssembly)best:(CPSet)inAssemblies 
 {
     var best = nil,
-        values = [inAssemblies allValues],
+        values = [inAssemblies allObjects],
         length = [values count];
     
     for (var i=0; i<length; i++) {

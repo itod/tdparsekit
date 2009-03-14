@@ -27,6 +27,7 @@ TDAssemblyDefaultDelimiter = @"/";
     if (self = [super init]) {
         stack = [];
         string = s;
+        index = 0;
     }
 
     return self;
@@ -141,9 +142,10 @@ TDAssemblyDefaultDelimiter = @"/";
 {
     var s = "[",
         i = 0,
-        length = stack.count;
+        len = [stack count];
     
-    for (;i<length;i++) {
+    for (;i<len;i++) {
+        var obj = stack[i];
         s = s + [obj description];
         if (len - 1 !== i++) {
             s = s + ", ";

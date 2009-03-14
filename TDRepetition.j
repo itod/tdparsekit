@@ -45,7 +45,7 @@
 {
     if (preassembler) {
         //NSAssert2([preassembler respondsToSelector:preassemblerSelector], @"provided preassembler %@ should respond to %s", preassembler, preassemblerSelector);
-        var values = [inAssemblies allValues],
+        var values = [inAssemblies allObjects],
             length = [values count];
 
         for (var i=0; i<length; i++)
