@@ -1,5 +1,5 @@
 
-@import "TDWord.j"
+@import "TDTokenTerminals.j"
 
 @implementation TDLowercaseWord : TDWord 
 {
