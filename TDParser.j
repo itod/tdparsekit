@@ -21,8 +21,10 @@
 
 - (void)setAssembler:(id)a selector:(SEL)sel 
 {
-    [self setAssembler:a];
-    [self setSelector:sel];
+    // [self setAssembler:a];
+    // [self setSelector:sel];
+    assembler = a;
+    selector = sel;
 }
 
 - (TDParser)parserNamed:(CPString)s 
