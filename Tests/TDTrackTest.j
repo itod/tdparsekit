@@ -6,7 +6,9 @@
 @import "../TDTokenTerminals.j"
 @import "../TDTokenAssembly.j"
 
-@implementation TDTrackTest : OJTestCase
+@implementation TDTrackTest : OJTestCase {
+    
+}
 
 //    list = '(' contents ')'
 //    contents = empty | actualList
