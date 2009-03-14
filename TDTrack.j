@@ -22,7 +22,7 @@
     {
         var p = subparsers[i];
         
-        outAssemblies = [i matchAndAssemble:outAssemblies];
+        outAssemblies = [p matchAndAssemble:outAssemblies];
         
         if (![outAssemblies count])
         {
@@ -39,30 +39,21 @@
     return outAssemblies;
 }
 
-- (void)throwTrackExceptionWithPreviousState:(NSSet *)inAssemblies parser:(TDParser *)p 
+- (void)throwTrackExceptionWithPreviousState:(CPSet)inAssemblies parser:(TDParser)p 
 {
-    [CPException raise:"TDTrackException" reason:"TDTrack"];
-    /*
-    TDAssembly *best = [self best:inAssemblies];
+    var best = [self best:inAssemblies];
 
-    NSString *after = [best consumedObjectsJoinedByString:@" "];
+    var after = [best consumedObjectsJoinedByString:@" "];
     if (!after.length) {
         after = @"-nothing-";
     }
     
-    NSString *expected = [p description];
-
-    id next = [best peek];
-    NSString *found = next ? [next description] : @"-nothing-";
+    var expected = [p description];
+    var next = [best peek];
+    var found = next ? [next description] : @"-nothing-";
     
-    NSString *reason = [NSString stringWithFormat:@"\n\nAfter : %@\nExpected : %@\nFound : %@\n\n", after, expected, found];
-    NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-                              after, @"after",
-                              expected, @"expected",
-                              found, @"found",
-                              nil];
-    [[TDTrackException exceptionWithName:TDTrackExceptionName reason:reason userInfo:userInfo] raise];
-    */
+    var reason = [CPString stringWithFormat:@"\n\nAfter : %@\nExpected : %@\nFound : %@\n\n", after, expected, found];
+    [CPException raise:"TDTrackException" reason:reason];
 }
 
 @end

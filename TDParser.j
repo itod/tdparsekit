@@ -97,10 +97,11 @@
 
 - (CPString)description 
 {
-    if (name.length)
+    if (name && name.length) {
         return [CPString stringWithFormat:@"%@ (%@)", [self className], name];
-    else
+    } else {
         return [CPString stringWithFormat:@"%@", [self className]];
+    }
 }
 
 @end

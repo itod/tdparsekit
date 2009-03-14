@@ -86,7 +86,7 @@
 - (CPString)description 
 {
     var className = [[self className] substringFromIndex:2];
-    if (name.length) {
+    if (name && name.length) {
         if (symbol) {
             return [CPString stringWithFormat:@"%@ (%@) %@", className, name, symbol.stringValue];
         } else {
@@ -147,7 +147,7 @@
 - (CPString)description 
 {
     var className = [[self className] substringFromIndex:2];
-    if (name.length) {
+    if (name && name.length) {
         return [CPString stringWithFormat:@"%@ (%@) %@", className, name, literal.stringValue];
     } else {
         return [CPString stringWithFormat:@"%@ %@", className, literal.stringValue];
