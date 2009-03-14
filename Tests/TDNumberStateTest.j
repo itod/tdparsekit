@@ -504,162 +504,162 @@
     [self assert:@"-0" equals:tok.stringValue];
 }
 
-// - (void)testNull
-// {
-//     s = @"NULL";
-//     [t setString:s];
-//     [r setString:s];
-//     var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
-//     [self assert:0.0 equals:tok.floatValue];
-//     TDFalse(tok.isNumber];
-// }
-// 
-// - (void)testNil
-// {
-//     s = @"nil";
-//     [t setString:s];
-//     [r setString:s];
-//     var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
-//     [self assert:0.0 equals:tok.floatValue];
-//     TDFalse(tok.isNumber];
-// }
-// 
-// - (void)testEmptyString
-// {
-//     s = @"";
-//     [t setString:s];
-//     [r setString:s];
-//     var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
-//     [self assert:0.0 equals:tok.floatValue];
-//     TDFalse(tok.isNumber];
-// }
-// 
-// - (void)testDot
-// {
-//     s = @".";
-//     [t setString:s];
-//     [r setString:s];
-//     var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
-//     [self assert:0.0 equals:tok.floatValue];
-//     TDFalse(tok.isNumber];
-// }
-// 
-// - (void)testDotSpace
-// {
-//     s = @". ";
-//     [t setString:s];
-//     [r setString:s];
-//     var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
-//     [self assert:0.0 equals:tok.floatValue];
-//     TDFalse(tok.isNumber];
-// }
-// 
-// - (void)testDotSpaceOne
-// {
-//     s = @". 1";
-//     [t setString:s];
-//     [r setString:s];
-//     var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
-//     [self assert:0.0 equals:tok.floatValue];
-//     TDFalse(tok.isNumber];
-// }
-// 
-// - (void)testPlus
-// {
-//     s = @"+";
-//     [t setString:s];
-//     [r setString:s];
-//     var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
-//     [self assert:0.0 equals:tok.floatValue];
-//     TDFalse(tok.isNumber];
-// }
-// 
-// - (void)testPlusSpace
-// {
-//     s = @"+ ";
-//     [t setString:s];
-//     [r setString:s];
-//     var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
-//     [self assert:0.0 equals:tok.floatValue];
-//     TDFalse(tok.isNumber];
-// }
-// 
-// - (void)testPlusSpaceOne
-// {
-//     s = @"+ 1";
-//     [t setString:s];
-//     [r setString:s];
-//     var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
-//     [self assert:0.0 equals:tok.floatValue];
-//     TDFalse(tok.isNumber];
-// }
-// 
-// - (void)testMinus
-// {
-//     s = @"-";
-//     [t setString:s];
-//     [r setString:s];
-//     var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
-//     [self assert:0.0 equals:tok.floatValue];
-//     TDFalse(tok.isNumber];
-// }
-// 
-// - (void)testMinusSpace
-// {
-//     s = @"- ";
-//     [t setString:s];
-//     [r setString:s];
-//     var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
-//     [self assert:0.0 equals:tok.floatValue];
-//     TDFalse(tok.isNumber];
-// }
-// 
-// - (void)testMinusSpaceOne
-// {
-//     s = @"- 1";
-//     [t setString:s];
-//     [r setString:s];
-//     var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
-//     [self assert:0.0 equals:tok.floatValue];
-//     TDFalse(tok.isNumber];
-// }
-// 
-// - (void)testInitSig
-// {
-//     s = @"- (id)init {";
-//     [t setString:s];
-//     [r setString:s];
-//     var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
-//  [self assertTrue:tok.isSymbol];
-//     [self assert:tok.stringValue equals:@"-"];
-//     [self assert:0.0 equals:tok.floatValue];
-// }
-// 
-// - (void)testInitSig2
-// {
-//     s = @"-(id)init {";
-//     [t setString:s];
-//     [r setString:s];
-//     var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
-//  [self assertTrue:tok.isSymbol];
-//     [self assert:tok.stringValue equals:@"-"];
-//     [self assert:0.0 equals:tok.floatValue];
-// }
-// 
-// - (void)testParenStuff
-// {
-//     s = @"-(ab+5)";
-//     [t setString:s];
-//     [r setString:s];
-//     var tok = [t nextToken];
-//  [self assertTrue:tok.isSymbol];
-//     [self assert:tok.stringValue equals:@"-"];
-//     [self assert:0.0 equals:tok.floatValue];
-// 
-//     tok = [t nextToken];
-//  [self assertTrue:tok.isSymbol];
-//     [self assert:tok.stringValue equals:@"("];
-//     [self assert:0.0 equals:tok.floatValue];
-// }
+- (void)testNull
+{
+    s = @"NULL";
+    [t setString:s];
+    [r setString:s];
+    var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
+    [self assert:0.0 equals:tok.floatValue];
+    [self assertFalse:tok.isNumber];
+}
+
+- (void)testNil
+{
+    s = @"nil";
+    [t setString:s];
+    [r setString:s];
+    var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
+    [self assert:0.0 equals:tok.floatValue];
+    [self assertFalse:tok.isNumber];
+}
+
+- (void)testEmptyString
+{
+    s = @"";
+    [t setString:s];
+    [r setString:s];
+    var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
+    [self assert:0.0 equals:tok.floatValue];
+    [self assertFalse:tok.isNumber];
+}
+
+- (void)testDot
+{
+    s = @".";
+    [t setString:s];
+    [r setString:s];
+    var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
+    [self assert:0.0 equals:tok.floatValue];
+    [self assertFalse:tok.isNumber];
+}
+
+- (void)testDotSpace
+{
+    s = @". ";
+    [t setString:s];
+    [r setString:s];
+    var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
+    [self assert:0.0 equals:tok.floatValue];
+    [self assertFalse:tok.isNumber];
+}
+
+- (void)testDotSpaceOne
+{
+    s = @". 1";
+    [t setString:s];
+    [r setString:s];
+    var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
+    [self assert:0.0 equals:tok.floatValue];
+    [self assertFalse:tok.isNumber];
+}
+
+- (void)testPlus
+{
+    s = @"+";
+    [t setString:s];
+    [r setString:s];
+    var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
+    [self assert:0.0 equals:tok.floatValue];
+    [self assertFalse:tok.isNumber];
+}
+
+- (void)testPlusSpace
+{
+    s = @"+ ";
+    [t setString:s];
+    [r setString:s];
+    var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
+    [self assert:0.0 equals:tok.floatValue];
+    [self assertFalse:tok.isNumber];
+}
+
+- (void)testPlusSpaceOne
+{
+    s = @"+ 1";
+    [t setString:s];
+    [r setString:s];
+    var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
+    [self assert:0.0 equals:tok.floatValue];
+    [self assertFalse:tok.isNumber];
+}
+
+- (void)testMinus
+{
+    s = @"-";
+    [t setString:s];
+    [r setString:s];
+    var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
+    [self assert:0.0 equals:tok.floatValue];
+    [self assertFalse:tok.isNumber];
+}
+
+- (void)testMinusSpace
+{
+    s = @"- ";
+    [t setString:s];
+    [r setString:s];
+    var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
+    [self assert:0.0 equals:tok.floatValue];
+    [self assertFalse:tok.isNumber];
+}
+
+- (void)testMinusSpaceOne
+{
+    s = @"- 1";
+    [t setString:s];
+    [r setString:s];
+    var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
+    [self assert:0.0 equals:tok.floatValue];
+    [self assertFalse:tok.isNumber];
+}
+
+- (void)testInitSig
+{
+    s = @"- (id)init {";
+    [t setString:s];
+    [r setString:s];
+    var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
+    [self assertTrue:tok.isSymbol];
+    [self assert:tok.stringValue equals:@"-"];
+    [self assert:0.0 equals:tok.floatValue];
+}
+
+- (void)testInitSig2
+{
+    s = @"-(id)init {";
+    [t setString:s];
+    [r setString:s];
+    var tok = [ns nextTokenFromReader:r startingWith:[r read] tokenizer:t];
+    [self assertTrue:tok.isSymbol];
+    [self assert:tok.stringValue equals:@"-"];
+    [self assert:0.0 equals:tok.floatValue];
+}
+
+- (void)testParenStuff
+{
+    s = @"-(ab+5)";
+    [t setString:s];
+    [r setString:s];
+    var tok = [t nextToken];
+    [self assertTrue:tok.isSymbol];
+    [self assert:tok.stringValue equals:@"-"];
+    [self assert:0.0 equals:tok.floatValue];
+
+    tok = [t nextToken];
+    [self assertTrue:tok.isSymbol];
+    [self assert:tok.stringValue equals:@"("];
+    [self assert:0.0 equals:tok.floatValue];
+}
 
 @end
