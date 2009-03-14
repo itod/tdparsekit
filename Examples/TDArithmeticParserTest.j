@@ -1,4 +1,3 @@
-@import "../TDParseKit.j"
 @import "TDArithmeticParser.j"
 
 @implementation TDArithmeticParserTest : OJTestCase {
@@ -231,14 +230,14 @@
 - (void)testOneHundredDivZero {
     s = @"100 / 0";
     result = [p parse:s];
-    [self assert:INFINITY equals:result];
+    [self assert:Infinity equals:result];
 }
 
 
 - (void)testNegativeOneDivZero {
     s = @"-1 / 0";
     result = [p parse:s];
-    [self assert:-INFINITY equals:result];
+    [self assert:-Infinity equals:result];
 }
 
 

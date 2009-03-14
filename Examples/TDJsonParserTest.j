@@ -1,4 +1,3 @@
-@import "../TDParseKit.j"
 @import "TDJsonParser.j"
 
 @implementation TDJsonParserTest : OJTestCase {
