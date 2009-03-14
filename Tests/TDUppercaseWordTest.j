@@ -7,7 +7,7 @@
     TDParser p;
     CPString s;
     TDAssembly a;
-    TDAssembly result;
+    TDAssembly res;
 }
 
 - (void)testFoobar {
@@ -15,10 +15,10 @@
     a = [TDTokenAssembly assemblyWithString:s];
     
     p = [TDUppercaseWord word];
-    result = [p completeMatchFor:a];
+    res = [p completeMatchFor:a];
     
-    [self assertNotNull:result];
-    [self assert:@"[Foobar]Foobar^" equals:[result description]];
+    [self assertNotNull:res];
+    [self assert:@"[Foobar]Foobar^" equals:[res description]];
 }
 
 
@@ -27,9 +27,9 @@
     a = [TDTokenAssembly assemblyWithString:s];
     
     p = [TDUppercaseWord word];
-    result = [p completeMatchFor:a];
+    res = [p completeMatchFor:a];
     
-    [self assertNull:result];
+    [self assertNull:res];
 }
 
 
@@ -38,9 +38,9 @@
     a = [TDTokenAssembly assemblyWithString:s];
     
     p = [TDUppercaseWord word];
-    result = [p completeMatchFor:a];
+    res = [p completeMatchFor:a];
     
-    [self assertNull:result];
+    [self assertNull:res];
 }
 
 
@@ -49,9 +49,9 @@
     a = [TDTokenAssembly assemblyWithString:s];
     
     p = [TDUppercaseWord word];
-    result = [p completeMatchFor:a];
+    res = [p completeMatchFor:a];
     
-    [self assertNull:result];
+    [self assertNull:res];
 }
 
 @end

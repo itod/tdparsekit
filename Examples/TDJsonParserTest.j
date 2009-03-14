@@ -4,7 +4,7 @@
     TDJsonParser p;
     CPString s;
     TDAssembly a;
-    TDAssembly result;
+    TDAssembly res;
 }
 
 - (void)setUp {
@@ -12,7 +12,7 @@
 }
 
 
-// - (void)testForAppleBossResultTokenization {
+// - (void)testForAppleBossresTokenization {
 //     var path = [[CPBundle bundleForClass:[self class]] pathForResource:@"apple-boss" ofType:@"json"];
 //     s = [CPString stringWithContentsOfFile:path encoding:CPUTF8StringEncoding error:nil];
 //     var t = [[[TDTokenizer alloc] initWithString:s] autorelease];
@@ -25,47 +25,47 @@
 // }
 // 
 // 
-// - (void)testForAppleBossResult {
+// - (void)testForAppleBossres {
 //     var path = [[CPBundle bundleForClass:[self class]] pathForResource:@"apple-boss" ofType:@"json"];
 //     s = [CPString stringWithContentsOfFile:path encoding:CPUTF8StringEncoding error:nil];
 //     
 //     try {
-//         result = [p parse:s];
+//         res = [p parse:s];
 //     }
 //     catch (e) {
 //         //CPLog(@"\n\n\nexception:\n\n %@", [e reason]);
 //     }
 //     
-//     //CPLog(@"result %@", result);
+//     //CPLog(@"res %@", res);
 // }
 
 
 - (void)testEmptyString {
     s = @"";
     a = [TDTokenAssembly assemblyWithString:s];
-    result = [p bestMatchFor:a];
-    [self assertNull:result];
+    res = [p bestMatchFor:a];
+    [self assertNull:res];
 }
 
 
 - (void)testNum {
     s = @"456";
     a = [TDTokenAssembly assemblyWithString:s];
-    result = [[p numberParser] bestMatchFor:a];
-    [self assertNotNull:result];
+    res = [[p numberParser] bestMatchFor:a];
+    [self assertNotNull:res];
 
-    [self assert:@"[456]456^" equals:[result description]];
-    var obj = [result pop];
+    [self assert:@"[456]456^" equals:[res description]];
+    var obj = [res pop];
     [self assertNotNull:obj];
     [self assert:456 equals:obj];
 
     
     s = @"-3.47";
     a = [TDTokenAssembly assemblyWithString:s];
-    result = [[p numberParser] bestMatchFor:a];
-    [self assertNotNull:result];
-    [self assert:@"[-3.47]-3.47^" equals:[result description]];
-    obj = [result pop];
+    res = [[p numberParser] bestMatchFor:a];
+    [self assertNotNull:res];
+    [self assert:@"[-3.47]-3.47^" equals:[res description]];
+    obj = [res pop];
     [self assertNotNull:obj];
     [self assert:-3.47 equals:obj];
 }
@@ -74,20 +74,20 @@
 - (void)testString {
     s = @"'foobar'";
     a = [TDTokenAssembly assemblyWithString:s];
-    result = [[p stringParser] bestMatchFor:a];
-    [self assertNotNull:result];
-    [self assert:@"[foobar]'foobar'^" equals:[result description]];
-    var obj = [result pop];
+    res = [[p stringParser] bestMatchFor:a];
+    [self assertNotNull:res];
+    [self assert:@"[foobar]'foobar'^" equals:[res description]];
+    var obj = [res pop];
     [self assertNotNull:obj];
     [self assert:@"foobar" equals:obj];
 
     s = @"\"baz boo boo\"";
     a = [TDTokenAssembly assemblyWithString:s];
-    result = [[p stringParser] bestMatchFor:a];
-    [self assertNotNull:result];
+    res = [[p stringParser] bestMatchFor:a];
+    [self assertNotNull:res];
     
-    [self assert:@"[baz boo boo]\"baz boo boo\"^" equals:[result description]];
-    obj = [result pop];
+    [self assert:@"[baz boo boo]\"baz boo boo\"^" equals:[res description]];
+    obj = [res pop];
     [self assertNotNull:obj];
     [self assert:@"baz boo boo" equals:obj];
 }
@@ -96,21 +96,21 @@
 - (void)testBoolean {
     s = @"true";
     a = [TDTokenAssembly assemblyWithString:s];
-    result = [[p booleanParser] bestMatchFor:a];
-    [self assertNotNull:result];
+    res = [[p booleanParser] bestMatchFor:a];
+    [self assertNotNull:res];
 
-    [self assert:@"[1]true^" equals:[result description]];
-    var obj = [result pop];
+    [self assert:@"[1]true^" equals:[res description]];
+    var obj = [res pop];
     [self assertNotNull:obj];
     [self assert:YES equals:obj];
 
     s = @"false";
     a = [TDTokenAssembly assemblyWithString:s];
-    result = [[p booleanParser] bestMatchFor:a];
-    [self assertNotNull:result];
+    res = [[p booleanParser] bestMatchFor:a];
+    [self assertNotNull:res];
 
-    [self assert:@"[0]false^" equals:[result description]];
-    obj = [result pop];
+    [self assert:@"[0]false^" equals:[res description]];
+    obj = [res pop];
     [self assertNotNull:obj];
     [self assert:NO equals:obj];
 }
@@ -119,33 +119,33 @@
 - (void)testArray {
     s = @"[1, 2, 3]";
     a = [TDTokenAssembly assemblyWithString:s];
-    result = [[p arrayParser] bestMatchFor:a];
+    res = [[p arrayParser] bestMatchFor:a];
     
-    CPLog(@"result: %@", result);
-    [self assertNotNull:result];
-    var obj = [result pop];
+    CPLog(@"res: %@", res);
+    [self assertNotNull:res];
+    var obj = [res pop];
     [self assert:3 equals:[obj count]];
     [self assert:1 equals:[obj objectAtIndex:0]];
     [self assert:2 equals:[obj objectAtIndex:1]];
     [self assert:3 equals:[obj objectAtIndex:2]];
-    [self assert:@"[][/1/,/2/,/3/]^" equals:[result description]];
+    [self assert:@"[][/1/,/2/,/3/]^" equals:[res description]];
 
     s = @"[true, 'garlic jazz!', .888]";
     a = [TDTokenAssembly assemblyWithString:s];
-    result = [[p arrayParser] bestMatchFor:a];
-    [self assertNotNull:result];
+    res = [[p arrayParser] bestMatchFor:a];
+    [self assertNotNull:res];
     
-    //[self assert:@"[true, 'garlic jazz!', .888]true/'garlic jazz!'/.888^", [result description]];
-    obj = [result pop];
+    //[self assert:@"[true, 'garlic jazz!', .888]true/'garlic jazz!'/.888^", [res description]];
+    obj = [res pop];
     [self assert:YES equals:[obj objectAtIndex:0]];
     [self assert:@"garlic jazz!" equals:[obj objectAtIndex:1]];
     [self assert:.888 equals:[obj objectAtIndex:2]];
 
     s = @"[1, [2, [3, 4]]]";
     a = [TDTokenAssembly assemblyWithString:s];
-    result = [[p arrayParser] bestMatchFor:a];
-    [self assertNotNull:result];
-    //CPLog(@"result: %@", [a stack]);
+    res = [[p arrayParser] bestMatchFor:a];
+    [self assertNotNull:res];
+    //CPLog(@"res: %@", [a stack]);
     [self assert:1 equals:[obj objectAtIndex:0]];
 }
 
@@ -153,35 +153,35 @@
 - (void)testObject {
     s = @"{'key': 'value'}";
     a = [TDTokenAssembly assemblyWithString:s];
-    result = [[p objectParser] bestMatchFor:a];
-    [self assertNotNull:result];
+    res = [[p objectParser] bestMatchFor:a];
+    [self assertNotNull:res];
     
-    var obj = [result pop];
+    var obj = [res pop];
     [self assert:[obj objectForKey:@"key"] equals:@"value"];
 
     s = @"{'foo': false, 'bar': true, \"baz\": -9.457}";
     a = [TDTokenAssembly assemblyWithString:s];
-    result = [[p objectParser] bestMatchFor:a];
-    [self assertNotNull:result];
+    res = [[p objectParser] bestMatchFor:a];
+    [self assertNotNull:res];
     
-    obj = [result pop];
+    obj = [res pop];
     [self assert:[obj objectForKey:@"foo"] equals:NO];
     [self assert:[obj objectForKey:@"bar"] equals:YES];
     [self assert:[obj objectForKey:@"baz"] equals:-9.457];
 
     s = @"{'baz': {'foo': [1,2]}}";
     a = [TDTokenAssembly assemblyWithString:s];
-    result = [[p objectParser] bestMatchFor:a];
-    [self assertNotNull:result];
+    res = [[p objectParser] bestMatchFor:a];
+    [self assertNotNull:res];
     
-    obj = [result pop];
+    obj = [res pop];
     var dict = [obj objectForKey:@"baz"];
     [self assertTrue:[dict isKindOfClass:[NSDictionary class]]];
     var arr = [dict objectForKey:@"foo"];
     [self assertTrue:[arr isKindOfClass:[CPArray class]]];
     [self assert:1 equals:[arr objectAtIndex:0]];
     
-    //    [self assert:@"['baz', 'foo', 1, 2]'baz'/'foo'/1/2^", [result description]];
+    //    [self assert:@"['baz', 'foo', 1, 2]'baz'/'foo'/1/2^", [res description]];
 }
 
 
@@ -239,10 +239,10 @@
         @"\"email_address\": \"\","
         @"\"phone_number\": \"(408) 349-3300\""
     @"}";
-    result = [p parse:s];
-    //CPLog(@"result %@", result);
-    [self assertNotNull:result];
-    var d = result;
+    res = [p parse:s];
+    //CPLog(@"res %@", res);
+    [self assertNotNull:res];
+    var d = res;
     [self assertNotNull:d];
     [self assertTrue:[d isKindOfClass:[NSDictionary class]]];
     [self assert:[d objectForKey:@"name"] equals:@"Yahoo!"];
@@ -276,12 +276,12 @@
         @"        \"assets/images/resized/0001/0836/10836v1-max-450x450.png\"]],"
         @"    \"attribution\": null}"
         @"}";
-    result = [p parse:s];
-    //CPLog(@"result %@", result);
+    res = [p parse:s];
+    //CPLog(@"res %@", res);
 
-    [self assertNotNull:result];
+    [self assertNotNull:res];
 
-    var d = result;
+    var d = res;
     [self assertNotNull:d];
     [self assertTrue:[d isKindOfClass:[NSDictionary class]]];
     
@@ -372,12 +372,12 @@
             @"{\"name\": \"Yahoo! Shortcuts\", \"permalink\": \"yahoo-shortcuts\"}"
         @"]"
     @"}";
-    result = [p parse:s];
-    //CPLog(@"result %@", result);
+    res = [p parse:s];
+    //CPLog(@"res %@", res);
     
-    [self assertNotNull:result];
+    [self assertNotNull:res];
 
-    var d = result;
+    var d = res;
     [self assertNotNull:d];
     [self assertTrue:[d isKindOfClass:[NSDictionary class]]];
     
@@ -516,12 +516,12 @@
         @"]";
 
     p = [[[TDFastJsonParser alloc] init] autorelease];
-    result = [p parse:s];
-    //CPLog(@"result %@", result);
+    res = [p parse:s];
+    //CPLog(@"res %@", res);
     
-    [self assertNotNull:result];
+    [self assertNotNull:res];
 
-    var d = result;
+    var d = res;
     [self assertNotNull:d];
     [self assertTrue:[d isKindOfClass:[CPArray class]]];
     

@@ -35,8 +35,8 @@
 - (float)parse:(CPString)s {
     var a = [TDTokenAssembly assemblyWithString:s];
     a = [self completeMatchFor:a];
-    CPLog(@"\n\na: %@\n\n", a);
-    var n = [a pop];
+    //CPLog(@"\n\na: %@\n\n", a);
+    var n = parseInt([a pop]);
     return n;
 }
 
