@@ -202,19 +202,21 @@
 
 
 - (void)workOnNullAssembly:(TDAssembly)a {
-    [a push:[CPNull null]];
+//    [a push:[CPNull null]];
+    [a push:null];
 }
 
 
 - (void)workOnNumberAssembly:(TDAssembly)a {
     var tok = [a pop];
-    [a push:[NSNumber numberWithFloat:tok.floatValue]];
+    [a push:tok.floatValue];
 }
 
 
 - (void)workOnStringAssembly:(TDAssembly)a {
     var tok = [a pop];
-    [a push:tok.stringValue.substr(1, -1)];
+    var qs = tok.stringValue;
+    [a push:qs.substring(1, qs.length - 1)];
 }
 
 
@@ -241,14 +243,14 @@
 
 - (void)workOnObjectAssembly:(TDAssembly)a {
     var elements = [a objectsAbove:curly];
-    var d = [CPDictionary dictionaryWithCapacity:[elements count] / 2];
+    var d = [CPDictionary dictionary];
     
     for (var i = 0, count = [elements count] - 1; i < count; i++) {
         var value = elements[i++];
-        var  key = elements[i];
-        if (key && value) {
-            [d setObject:value forKey:key];
-        }
+        var key = elements[i];
+        //if (key && value) {
+            d[key] = value;
+        //}
     }
     
     [a pop]; // pop the {
@@ -259,7 +261,8 @@
 - (void)workOnPropertyAssembly:(TDAssembly)a {
     var value = [a pop];
     var tok = [a pop];
-    var key = tok.stringValue.substr(1, -1);
+    var qs = tok.stringValue;
+    var key = qs.substring(1, qs.length - 1);
     
     [a push:key];
     [a push:value];

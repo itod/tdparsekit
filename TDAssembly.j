@@ -146,7 +146,10 @@ TDAssemblyDefaultDelimiter = @"/";
     
     for (;i<len;i++) {
         var obj = stack[i];
-        s = s + [obj description];
+        if (typeof s == "string")
+            s = s + obj;
+        else
+            s = s + [obj description];
         if (len - 1 != i) {
             s = s + ", ";
         }
