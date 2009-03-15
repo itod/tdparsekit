@@ -12,6 +12,48 @@
 }
 
 
+- (void)testCrunchBaseJsonParser {
+    var req = [CPURLRequest requestWithURL:"/Users/itod/work/capp/tdparsekit/Examples/yahoo.json"];
+    //CPLog("req: %@", req)
+    var data = [CPURLConnection sendSynchronousRequest:req returningResponse:nil error:nil];
+    var s = [data string];
+        
+    //CPLog("s: %@", s)
+    var parser = [[TDJsonParser alloc] init];
+
+    var start = Date.now();
+    [parser parse:s];
+    var end = Date.now();
+    
+    CPLog("parsing yahoo.json took %f sec", (end - start)/1000)
+    
+    // var res = [parser parse:s];
+    // CPLog(@"res %@", res);
+    
+}
+
+
+- (void)testBossJsonParser {
+    var req = [CPURLRequest requestWithURL:"/Users/itod/work/capp/tdparsekit/Examples/apple-boss.json"];
+    //CPLog("req: %@", req)
+    var data = [CPURLConnection sendSynchronousRequest:req returningResponse:nil error:nil];
+    var s = [data string];
+        
+    //CPLog("s: %@", s)
+    var parser = [[TDJsonParser alloc] init];
+
+    var start = Date.now();
+    [parser parse:s];
+    var end = Date.now();
+    
+    CPLog("parsing apple-boss.json took %f sec", (end - start)/1000)
+    
+    // var res = [parser parse:s];
+    // CPLog(@"res %@", res);
+    
+}
+
+
 // - (void)testForAppleBossresTokenization {
 //     var path = [[CPBundle bundleForClass:[self class]] pathForResource:@"apple-boss" ofType:@"json"];
 //     s = [CPString stringWithContentsOfFile:path encoding:CPUTF8StringEncoding error:nil];
@@ -185,26 +227,6 @@
     //    [self assert:@"['baz', 'foo', 1, 2]'baz'/'foo'/1/2^", [res description]];
 }
 
-
-- (void)testCrunchBaseJsonParser {
-    var req = [CPURLRequest requestWithURL:"/Users/itod/work/capp/tdparsekit/Examples/yahoo.json"];
-    //CPLog("req: %@", req)
-    var data = [CPURLConnection sendSynchronousRequest:req returningResponse:nil error:nil];
-    var s = [data string];
-        
-    //CPLog("s: %@", s)
-    var parser = [[TDJsonParser alloc] init];
-
-    var start = Date.now();
-    [parser parse:s];
-    var end = Date.now();
-    
-    CPLog("parsing yahoo.json took %f sec", (end - start)/1000)
-    
-    // var res = [parser parse:s];
-    // CPLog(@"res %@", res);
-    
-}
 // 
 // 
 // - (void)testCrunchBaseJsonParserTokenization {

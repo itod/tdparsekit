@@ -1,6 +1,8 @@
 
 @import "TDTokenizerState.j"
 
+SPACE = ' '.charCodeAt(0);
+
 @implementation TDWhitespaceState : TDTokenizerState 
 {
     CPArray     whitespaceChars;
@@ -17,7 +19,7 @@
             [whitespaceChars addObject:NO];
         }
         
-        [self setWhitespaceChars:YES from:0 to:' '.charCodeAt(0)];
+        [self setWhitespaceChars:YES from:0 to:SPACE];
     }
 
     return self;

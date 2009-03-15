@@ -4,6 +4,9 @@
 @import "TDToken.j"
 @import "TDReader.j"
 
+NL    = '\n'.charCodeAt(0);
+CR    = '\r'.charCodeAt(0);
+
 @implementation TDSingleLineCommentState : TDTokenizerState 
 {
     CPArray     startSymbols;
@@ -45,7 +48,7 @@
     var c;
     while (1) {
         c = [r read];
-        if ('\n'.charCodeAt(0) == c || '\r'.charCodeAt(0) == c || -1 == c) {
+        if (NL == c || CR == c || -1 == c) {
             break;
         }
         if (reportTokens) {

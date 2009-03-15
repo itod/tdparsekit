@@ -16,12 +16,12 @@
             [wordChars addObject:NO];
         }
         
-        [self setWordChars:YES from: 'a'.charCodeAt(0) to: 'z'.charCodeAt(0)];
-        [self setWordChars:YES from: 'A'.charCodeAt(0) to: 'Z'.charCodeAt(0)];
-        [self setWordChars:YES from: '0'.charCodeAt(0) to: '9'.charCodeAt(0)];
-        [self setWordChars:YES from: '-'.charCodeAt(0) to: '-'.charCodeAt(0)];
-        [self setWordChars:YES from: '_'.charCodeAt(0) to: '_'.charCodeAt(0)];
-        [self setWordChars:YES from:'\''.charCodeAt(0) to:'\''.charCodeAt(0)];
+        [self setWordChars:YES from:  97 to: 122]; // From: 'a' to: 'z'    From:0x61 to:0x7A
+        [self setWordChars:YES from:  65 to:  90]; // From: 'A' to: 'Z'    From:0x41 to:0x5A
+        [self setWordChars:YES from:  48 to:  57]; // From: '0' to: '9'    From:0x30 to:0x39
+        [self setWordChars:YES from:  45 to:  45]; // From: '-' to: '-'    From:0x2D to:0x2D
+        [self setWordChars:YES from:  95 to:  95]; // From: '_' to: '_'
+        [self setWordChars:YES from:  39 to:  39]; // From:'\'' to:'\''    From:0x27 to:0x27
         [self setWordChars:YES from: 192 to: 255];
     }
 

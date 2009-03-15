@@ -55,22 +55,22 @@
         
         tokenizerStates = [];
         
-        [self addTokenizerState:whitespaceState from:   0 to: ' '.charCodeAt(0)]; // From:  0 to: 32    From:0x00 to:0x20
+        [self addTokenizerState:whitespaceState from:   0 to:  32]; // From:  0 to:' '    From:0x00 to:0x20
         [self addTokenizerState:symbolState     from:  33 to:  33];
-        [self addTokenizerState:quoteState      from: '"'.charCodeAt(0) to: '"'.charCodeAt(0)]; // From: 34 to: 34    From:0x22 to:0x22
+        [self addTokenizerState:quoteState      from:  34 to:  34]; // From: '"' to: '"'    From:0x22 to:0x22
         [self addTokenizerState:symbolState     from:  35 to:  38];
-        [self addTokenizerState:quoteState      from:'\''.charCodeAt(0) to:'\''.charCodeAt(0)]; // From: 39 to: 39    From:0x27 to:0x27
+        [self addTokenizerState:quoteState      from:  39 to:  39]; // From:'\'' to:'\''    From:0x27 to:0x27
         [self addTokenizerState:symbolState     from:  40 to:  42];
-        [self addTokenizerState:symbolState     from: '+'.charCodeAt(0) to: '+'.charCodeAt(0)]; // From: 43 to: 43    From:0x2B to:0x2B
+        [self addTokenizerState:symbolState     from:  43 to:  43]; // From: '+' to: '+'    From:0x2B to:0x2B
         [self addTokenizerState:symbolState     from:  44 to:  44];
-        [self addTokenizerState:numberState     from: '-'.charCodeAt(0) to: '-'.charCodeAt(0)]; // From: 45 to: 45    From:0x2D to:0x2D
-        [self addTokenizerState:numberState     from: '.'.charCodeAt(0) to: '.'.charCodeAt(0)]; // From: 46 to: 46    From:0x2E to:0x2E
-        [self addTokenizerState:commentState    from: '/'.charCodeAt(0) to: '/'.charCodeAt(0)]; // From: 47 to: 47    From:0x2F to:0x2F
-        [self addTokenizerState:numberState     from: '0'.charCodeAt(0) to: '9'.charCodeAt(0)]; // From: 48 to: 57    From:0x30 to:0x39
+        [self addTokenizerState:numberState     from:  45 to:  45]; // From: '-' to: '-'    From:0x2D to:0x2D
+        [self addTokenizerState:numberState     from:  46 to:  46]; // From: '.' to: '.'    From:0x2E to:0x2E
+        [self addTokenizerState:commentState    from:  47 to:  47]; // From: '/' to: '/'    From:0x2F to:0x2F
+        [self addTokenizerState:numberState     from:  48 to:  57]; // From: '0' to: '9'    From:0x30 to:0x39
         [self addTokenizerState:symbolState     from:  58 to:  64];
-        [self addTokenizerState:wordState       from: 'A'.charCodeAt(0) to: 'Z'.charCodeAt(0)]; // From: 65 to: 90    From:0x41 to:0x5A
+        [self addTokenizerState:wordState       from:  65 to:  90]; // From: 'A' to: 'Z'    From:0x41 to:0x5A
         [self addTokenizerState:symbolState     from:  91 to:  96];
-        [self addTokenizerState:wordState       from: 'a'.charCodeAt(0) to: 'z'.charCodeAt(0)]; // From: 97 to:122    From:0x61 to:0x7A
+        [self addTokenizerState:wordState       from:  97 to: 122]; // From: 'a' to: 'z'    From:0x61 to:0x7A
         [self addTokenizerState:symbolState     from: 123 to: 191];
         [self addTokenizerState:wordState       from: 192 to: 255]; // From:192 to:255    From:0xC0 to:0xFF
     }

@@ -1,6 +1,12 @@
 
 @import "TDTokenizerState.j"
 
+DOT   = '.'.charCodeAt(0);
+MINUS = '-'.charCodeAt(0);
+PLUS  = '+'.charCodeAt(0);
+ZERO  = '0'.charCodeAt(0);
+NINE  = '9'.charCodeAt(0);
+
 @implementation TDNumberState : TDTokenizerState 
 {
     BOOL    allowsTrailingDot;
@@ -18,18 +24,18 @@
     
     var originalCin = cin;
     
-    if ('-'.charCodeAt(0) == cin) {
+    if (MINUS == cin) {
         negative = YES;
         cin = [r read];
         [self appendString:'-'];
-    } else if ('+'.charCodeAt(0) == cin) {
+    } else if (PLUS == cin) {
         cin = [r read];
         [self appendString:'+'];
     }
     
     [self reset:cin];
     
-    if ('.'.charCodeAt(0) == c) {
+    if (DOT == c) {
         [self parseRightSideFromReader:r];
     } else {
         [self parseLeftSideFromReader:r];
@@ -66,10 +72,10 @@
         v = 0.0;
     
     while (true) {
-        if (c >= '0'.charCodeAt(0) && c <= '9'.charCodeAt(0)) {
+        if (c >= ZERO && c <= NINE) {
             [self append:c];
             gotADigit = YES;
-            v = v * 10.0 + (c - '0'.charCodeAt(0));
+            v = v * 10.0 + (c - ZERO);
             c = [r read];
             if (isFraction) {
                 divideBy *= 10.0;
@@ -96,7 +102,7 @@
     if ('.'.charCodeAt(0) == c) 
     {
         var n = [r read],
-            nextIsDigit = (n >= '0'.charCodeAt(0) && n <= '9'.charCodeAt(0));
+            nextIsDigit = (n >= ZERO && n <= NINE);
 
         if (-1 != n)
             [r unread];

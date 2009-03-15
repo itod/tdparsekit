@@ -35,7 +35,7 @@ TDAssemblyDefaultDelimiter = @"/";
 
 // this private intializer exists simply to improve the performance of the -copyWithZone: method.
 // note flow *does not* go thru the designated initializer above. however, that ugliness is worth it cuz
-// the perf of -copyWithZone: in this class is *vital* to the framework's performance
+// the perf of -copy: in this class is *vital* to the framework's performance
 - (id)_init 
 {
     return [super init];

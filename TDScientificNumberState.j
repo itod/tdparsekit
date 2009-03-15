@@ -1,6 +1,14 @@
 
 @import "TDNumberState.j"
 
+SMALL_E = 'e'.charCodeAt(0);
+BIG_E   = 'E'.charCodeAt(0);
+DOT     = '.'.charCodeAt(0);
+MINUS   = '-'.charCodeAt(0);
+PLUS    = '+'.charCodeAt(0);
+ZERO    = '0'.charCodeAt(0);
+NINE    = '9'.charCodeAt(0);
+
 @implementation TDScientificNumberState : TDNumberState 
 {
     float exp;
@@ -11,19 +19,19 @@
 {
     [super parseRightSideFromReader:r];
 
-    var smallE = 'e'.charCodeAt(0) == c;
-    var bigE = 'E'.charCodeAt(0) == c; 
+    var smallE = SMALL_E == c;
+    var bigE = BIG_E == c; 
 
     if (smallE || bigE) {
         c = [r read];
                 
-        var hasExp = (c >= '0'.charCodeAt(0) && c <= '9'.charCodeAt(0)),
-            negativeExp = ('-'.charCodeAt(0) == c),
-            positiveExp = ('+'.charCodeAt(0) == c);
+        var hasExp = (c >= ZERO && c <= NINE),
+            negativeExp = (MINUS == c),
+            positiveExp = (PLUS == c);
 
         if (!hasExp && (!!negativeExp || !!positiveExp)) {
             c = [r read];
-            hasExp = (c >= '0'.charCodeAt(0) || c <= '9'.charCodeAt(0));
+            hasExp = (c >= ZERO || c <= NINE);
         }
         if (-1 != c) {
             [r unread];
