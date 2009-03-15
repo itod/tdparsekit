@@ -186,14 +186,25 @@
 }
 
 
-// - (void)testCrunchBaseJsonParser {
-//     var path = [[CPBundle bundleForClass:[self class]] pathForResource:@"yahoo" ofType:@"json"];
-//     s = [CPString stringWithContentsOfFile:path encoding:CPUTF8StringEncoding error:nil];
-//     TDJsonParser *parser = [[[TDJsonParser alloc] init] autorelease];
-//     [parser parse:s];
-//     // var res = [parser parse:s];
-//     //CPLog(@"res %@", res);
-// }
+- (void)testCrunchBaseJsonParser {
+    var req = [CPURLRequest requestWithURL:"/Users/itod/work/capp/tdparsekit/Examples/yahoo.json"];
+    //CPLog("req: %@", req)
+    var data = [CPURLConnection sendSynchronousRequest:req returningResponse:nil error:nil];
+    var s = [data string];
+        
+    //CPLog("s: %@", s)
+    var parser = [[TDJsonParser alloc] init];
+
+    var start = Date.now();
+    [parser parse:s];
+    var end = Date.now();
+    
+    CPLog("parsing yahoo.json took %f sec", (end - start)/1000)
+    
+    // var res = [parser parse:s];
+    // CPLog(@"res %@", res);
+    
+}
 // 
 // 
 // - (void)testCrunchBaseJsonParserTokenization {
