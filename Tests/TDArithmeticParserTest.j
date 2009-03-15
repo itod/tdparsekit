@@ -1,4 +1,4 @@
-@import "TDArithmeticParser.j"
+@import "../Examples/TDArithmeticParser.j"
 
 @implementation TDArithmeticParserTest : OJTestCase {
     CPString s;

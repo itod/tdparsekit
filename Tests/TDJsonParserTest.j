@@ -1,4 +1,4 @@
-@import "TDJsonParser.j"
+@import "../Examples/TDJsonParser.j"
 
 @implementation TDJsonParserTest : OJTestCase {
     TDJsonParser p;
@@ -13,7 +13,7 @@
 
 
 - (void)testCrunchBaseJsonParser {
-    var req = [CPURLRequest requestWithURL:"/Users/itod/work/capp/tdparsekit/Examples/yahoo.json"];
+    var req = [CPURLRequest requestWithURL:"/Users/itod/work/capp/tdparsekit/Tests/yahoo.json"];
     //CPLog("req: %@", req)
     var data = [CPURLConnection sendSynchronousRequest:req returningResponse:nil error:nil];
     var s = [data string];
@@ -34,7 +34,7 @@
 
 
 - (void)testBossJsonParser {
-    var req = [CPURLRequest requestWithURL:"/Users/itod/work/capp/tdparsekit/Examples/apple-boss.json"];
+    var req = [CPURLRequest requestWithURL:"/Users/itod/work/capp/tdparsekit/Tests/apple-boss.json"];
     //CPLog("req: %@", req)
     var data = [CPURLConnection sendSynchronousRequest:req returningResponse:nil error:nil];
     var s = [data string];
